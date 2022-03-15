@@ -70,8 +70,8 @@ select {
     }
 
     #your-wl-spots {
-        font-size: 2.8vh;
-        line-height: 3.2vh;
+        font-size: 3.2vh;
+        line-height: 3.4vh;
     }
 
     h1 {
@@ -93,8 +93,8 @@ select {
         width: 100%;
         border-top: solid 5px #333333;
         padding-top:4vh !important;
-        font-size: 1.8vh;
-        line-height: 1.8vh;
+        font-size: 2vh;
+        line-height: 2.2vh;
     }
 
     select {
