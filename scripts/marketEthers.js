@@ -14,7 +14,7 @@
 
 // const etherscanBase = `https://etherscan.io/tx/`;
 // const correctChain = 1;
-// const tokenImgURL = "https://github.com/saintmaxi/mtmtest/blob/main/images/mes.png?raw=true";
+// const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images/cheethv2.png?raw=true";
 
 /*********************************************************************************/
 /***********************************DEV CONFIG************************************/
@@ -32,7 +32,7 @@ const marketAbi = () => {
 
 const etherscanBase = `https://rinkeby.etherscan.io/tx/`;
 const correctChain = 4;
-const tokenImgURL = "https://github.com/saintmaxi/saintmaxi.github.io/blob/main/images/chees.png?raw=true";
+const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images/cheethv2.png?raw=true";
 
 /*********************************END CONFIG************************************/
 
