@@ -215,6 +215,12 @@ const loadCollections = async() => {
     $("#past-collections").append(pastJSX);
     $("#num-live").html(`<br>(${numLive})`);
     $("#num-past").html(`<br>(${numPast})`);
+    if (numLive > 3 && $("#live-button").hasClass("active")) {
+        $("#scroll-indicator").removeClass("hidden");
+    }
+    else if (numPast > 3 && $("#past-button").hasClass("active")) {
+        $("#scroll-indicator").removeClass("hidden");
+    }
     loadedCollections = true;
 }
 
