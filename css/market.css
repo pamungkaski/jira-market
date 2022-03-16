@@ -366,11 +366,11 @@ h4 {
 }
 
 .purchased {
-    background-color: #333333;
+    background-color: #9c9696 !important;
 }
 
 .purchased:hover {
-    background-color: #333333 !important;
+    background-color: #9c9696 !important;
     color: #F8E4A9 !important;
 }
 

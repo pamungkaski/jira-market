@@ -140,9 +140,7 @@ function updateDownload(listingName) {
 
 provider.on("network", async(newNetwork, oldNetwork) => {
     if (oldNetwork) {
-        $("#refresh-notification").remove();
-        await updateCurrentChain();
-        await updateClaimingInfo();
+        location.reload();
     }
 });
 
@@ -202,6 +200,7 @@ async function endLoading(tx, txStatus) {
 }
 
 setInterval(async()=>{
+    await updateCurrentChain();
     await updateInfo();
     await updateTokenBalance();
 }, 5000)
@@ -217,6 +216,7 @@ ethereum.on("accountsChanged", async(accounts_)=>{
 });
 
 window.onload = async()=>{
+    await updateCurrentChain();
     await updateInfo();
     $("#your-wl-spots").html(`Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
     await loadCollectionsData();
