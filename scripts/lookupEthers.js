@@ -74,6 +74,13 @@ const updateCurrentChain = async() => {
     }
 }
 
+const updateTokenBalance = async() => {
+    const userAddress = await getAddress();
+    let balance = formatEther((await cheeth.balanceOf(userAddress)));
+    $("#token-balance").html(`${balance}`);
+    $("#mobile-balance").html(`${balance}`);
+}
+
 var projectToWL = new Map();
 var myWL = [];
 
@@ -196,6 +203,7 @@ async function endLoading(tx, txStatus) {
 
 setInterval(async()=>{
     await updateInfo();
+    await updateTokenBalance();
 }, 5000)
 
 const updateInfo = async () => {
@@ -213,6 +221,7 @@ window.onload = async()=>{
     $("#your-wl-spots").html(`Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
     await loadCollectionsData();
     await loadMyWL();
+    await updateTokenBalance();
 };
 
 window.onunload = async()=>{
