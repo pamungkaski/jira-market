@@ -262,11 +262,19 @@
         font-size: 5vh;
         line-height: 5vh;
         background-color: #333333;
-        padding-top: 20px !important;
+        /* padding-top: 20px !important; */
         margin: 0;
         padding: 2%;
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
+    }
+
+    #title img {
+        width: 15%;
+    }
+
+    #title-section {
+       font-size: 4vh !important;
     }
 
     #socials {
