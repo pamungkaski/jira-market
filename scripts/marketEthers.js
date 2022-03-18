@@ -151,7 +151,7 @@ var loadedCollections = false;
 const loadCollections = async() => {
     const userAddress = await getAddress();
     const numCollections = Number( await market.getWLVendingItemsLength(cheethAddress) );
-    const allItems = await market.getWLVendingItemsPaginated( cheethAddress, 0, numCollections );
+    const allItems = await market.getWLVendingItemsAll( cheethAddress );
     let allItemIds = Array.from(Array(numCollections).keys());
     const chunks = splitArrayToChunks(allItemIds, 5);
     let liveJSX = "";
