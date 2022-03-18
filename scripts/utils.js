@@ -49,7 +49,7 @@ function toggleMenu() {
  }
 
  const loadInfuraListings = async() => {
-    const listings = await fetch(`https://www.wavecatchers.io/.netlify/functions/listings?get=true`).then(res => res.text());
+    const listings = await fetch(`.netlify/functions/listings`).then(res => res.text());
     const jsonData = listings ? JSON.parse(listings) : [];
     $("#live-collections").empty();
     $("#past-collections").empty();

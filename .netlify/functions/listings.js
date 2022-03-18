@@ -110,11 +110,6 @@ const getCollections = async() => {
 
 exports.handler = async function(event, context) {
     try {
-        let { get } = event.queryStringParameters || {};
-         if (!get) {
-            return { statusCode: 400, body: "Missing query parameters" };
-         }
-
          let listings = await getCollections();
 
          return {
