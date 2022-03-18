@@ -23,7 +23,6 @@ const splitArrayToChunks = (array_, chunkSize_) => {
 };
 
 const getCollections = async() => {
-    const userAddress = await getAddress();
     const numCollections = Number( await market.getWLVendingItemsLength(cheethAddress) );
     const allItems = await market.getWLVendingItemsPaginated( cheethAddress, 0, numCollections );
     let allItemIds = Array.from(Array(numCollections).keys());
