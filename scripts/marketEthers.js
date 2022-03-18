@@ -86,9 +86,7 @@ const approveTokenToMarket = async() => {
     });
 }
 
-const checkTokenApproval = async() => {
-    const userAddress = await getAddress();
-
+const checkTokenApproval = async(userAddress) => {
     if (Number(await cheeth.allowance(userAddress, marketAddress)) >= maxInt) {
         $("#approval-container").addClass("hidden");
     }
@@ -254,13 +252,14 @@ const loadCollections = async() => {
 }
 
 const updateSupplies = async() => {
+    let userAddress = await getAddress();
     let numListings = Number(await market.getWLVendingItemsLength(cheethAddress));
     for (let id = 0; id < numListings; id++) {
-        let buyers = (await market.getWLPurchasersOf(cheethAddress, id));
+        let buyers = await market.getWLPurchasersOf(cheethAddress, id);
         let WLinfo = await market.contractToWLVendingItems(cheethAddress, id);
         let maxSlots = WLinfo.amountAvailable;
         let minted = WLinfo.amountPurchased;
-        let purchased = buyers.includes((await getAddress()));
+        let purchased = buyers.includes(userAddress);
         if (purchased) {
             $(`#${id}-mint-button`).text("PURCHASED");
             $(`#${id}-mint-button`).addClass("purchased");
@@ -335,8 +334,8 @@ async function endLoading(tx, txStatus) {
 }
 
 const updateInfo = async () => {
-    await checkTokenApproval();
     let userAddress = await getAddress();
+    await checkTokenApproval(userAddress);
     $("#account").text(`${userAddress.substr(0,9)}..`);
     $("#account").addClass(`connected`);
     $("#mobile-account").text(`${userAddress.substr(0,9)}...`);
