@@ -151,7 +151,13 @@ var loadedCollections = false;
 const loadCollections = async() => {
     const userAddress = await getAddress();
     const numCollections = Number( await market.getWLVendingItemsLength(cheethAddress) );
-    const allItems = await market.getWLVendingItemsAll( cheethAddress );
+    let allItems;
+    if (numCollections > 0) {
+        allItems = await market.getWLVendingItemsPaginated( cheethAddress, 0, numCollections - 1);
+    }
+    else {
+        allItems = [];
+    }
     let allItemIds = Array.from(Array(numCollections).keys());
     const chunks = splitArrayToChunks(allItemIds, 5);
     let liveJSX = "";
