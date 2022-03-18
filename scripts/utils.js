@@ -47,3 +47,20 @@ function toggleMenu() {
     el.classList.toggle('expanded')
     el.classList.toggle('collapsed')
  }
+
+ const loadInfuraListings = async() => {
+    const listings = await fetch(`https://www.wavecatchers.io/.netlify/functions/listings?get=true`).then(res => res.text());
+    const jsonData = listings ? JSON.parse(listings) : [];
+    $("#live-collections").empty();
+    $("#past-collections").empty();
+    $("#live-collections").append(jsonData.liveJSX);
+    $("#past-collections").append(jsonData.pastJSX);
+    $("#num-live").html(`<br>(${jsonData.numLive})`);
+    $("#num-past").html(`<br>(${jsonData.numPast})`);
+    if (jsonData.numLive > 3 && $("#live-button").hasClass("active")) {
+        $("#scroll-indicator").removeClass("hidden");
+    }
+    else if (jsonData.numPast > 3 && $("#past-button").hasClass("active")) {
+        $("#scroll-indicator").removeClass("hidden");
+    }
+}
