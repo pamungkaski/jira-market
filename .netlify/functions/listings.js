@@ -49,13 +49,14 @@ const getCollections = async() => {
             let maxSlots = WLinfo.amountAvailable;
             let minted = WLinfo.amountPurchased;
             let valid =  WLinfo.deadline > (Date.now()/1000);
+            let imageUri = (WLinfo.imageUri).includes("https://") ? WLinfo.imageUri : `https://${WLinfo.imageUri}`
 
             if (minted != maxSlots && valid) {
                 numLive += 1;
                 let fakeJSX = `<div class="partner-collection" id="project-${id}">
                                 <img class="collection-img" src="${WLinfo.imageUri}">
                                 <div class="collection-info">
-                                    <h3><a class="clickable link" href="${WLinfo.projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
+                                    <h3><a class="clickable link" href="${imageUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
                                     <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon">
                                     <br>
                                     <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased
@@ -74,7 +75,7 @@ const getCollections = async() => {
             else {
                 numPast +=1;
                 let fakeJSX = `<div class="partner-collection" id="project-${id}">
-                                <img class="collection-img" src="${WLinfo.imageUri}">
+                                <img class="collection-img" src="${imageUri}">
                                 <div class="collection-info">
                                     <h3><a class="clickable link" href="${WLinfo.projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
                                     <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon"> <br> <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</h4>
