@@ -149,9 +149,11 @@ const splitArrayToChunks = (array_, chunkSize_) => {
 var loadedCollections = false;
 
 const loadCollections = async() => {
-    let numCollections = Number(await market.getWLVendingItemsLength(cheethAddress));
-    let collections = Array.from(Array(numCollections).keys());
-    const chunks = splitArrayToChunks(collections, 5);
+    const userAddress = await getAddress();
+    const numCollections = Number( await market.getWLVendingItemsLength(cheethAddress) );
+    const allItems = await market.getWLVendingItemsPaginated( cheethAddress, 0, numCollections );
+    let allItemIds = Array.from(Array(numCollections).keys());
+    const chunks = splitArrayToChunks(allItemIds, 5);
     let liveJSX = "";
     let pastJSX = "";
     let numLive = 0;
@@ -161,9 +163,9 @@ const loadCollections = async() => {
     for (const chunk of chunks) {
         await Promise.all( chunk.map( async(id) => {
             // WL data from contract
-            let WLinfo = await market.contractToWLVendingItems(cheethAddress, id);
+            let WLinfo = allItems[id];
             let collectionPrice = Number(formatEther(WLinfo.price));
-            let purchased = await market.contractToWLPurchased(cheethAddress, id, await getAddress());
+            let purchased = await market.contractToWLPurchased(cheethAddress, id, userAddress);
 
             // Data from JSON file
             let maxSlots = WLinfo.amountAvailable;
