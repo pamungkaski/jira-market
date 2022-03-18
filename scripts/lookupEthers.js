@@ -96,7 +96,6 @@ const loadCollectionsData = async() => {
         if (purchased) {
             myWL.push(title);
         }
-        console.log(title, buyers)
         projectToWL.set(title, buyers);
         fakeJSX += `<option value="${title}">${title}</option>`;
         if (i == 0) {
