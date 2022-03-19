@@ -1,0 +1,18 @@
+#ex1 input {
+    width: 85%;
+    font-size: .9vw;
+    line-height: 1.5vw;
+    border: solid black .25vw;
+}
+
+@media screen and (max-width: 767px) {
+
+    #ex1 input {
+        width: 85%;
+        font-size: 2vh;
+        line-height: 2vh;
+        border: solid black 2px;
+    }
+
+
+}
