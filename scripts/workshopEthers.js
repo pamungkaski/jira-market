@@ -69,7 +69,8 @@ const getChainId = async()=>{
 const generate = async() => {
     let title = $("#listing-title").val();
     let image = $("#listing-image").val();
-    let site = $("#listing-site").val();
+    let site = ($("#listing-site").val()).includes("https://") ? $("#listing-site").val() : `https://${$("#listing-site").val()}`;
+
     let description = $("#listing-description").val();
     let amount = Number($("#listing-amount").val());
     let deadline = $("#listing-deadline").val();
@@ -89,7 +90,7 @@ const addListing = async() => {
     try {
         let title = $("#listing-title").val();
         let image = $("#listing-image").val();
-        let site = $("#listing-site").val();
+        let site = ($("#listing-site").val()).includes("https://") ? $("#listing-site").val() : `https://${$("#listing-site").val()}`;
         let description = $("#listing-description").val();
         let amount = Number($("#listing-amount").val());
         let deadline = Number($("#listing-deadline").val());

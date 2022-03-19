@@ -177,7 +177,8 @@ const loadCollections = async() => {
             let maxSlots = WLinfo.amountAvailable;
             let minted = WLinfo.amountPurchased;
             let valid =  WLinfo.deadline > (Date.now()/1000);
-            let imageUri = (WLinfo.imageUri).includes("https://") ? WLinfo.imageUri : `https://${WLinfo.imageUri}`
+            let imageUri = (WLinfo.imageUri).includes("https://") ? WLinfo.imageUri : `https://${WLinfo.imageUri}`;
+            let projectUri = (WLinfo.projectUri).includes("https://") ? WLinfo.projectUri : `https://${WLinfo.projectUri}`;
 
             if (minted != maxSlots && valid) {
                 numLive += 1;
@@ -191,7 +192,7 @@ const loadCollections = async() => {
                 let fakeJSX = `<div class="partner-collection" id="project-${id}">
                                 <img class="collection-img" src="${imageUri}">
                                 <div class="collection-info">
-                                    <h3><a class="clickable link" href="${WLinfo.projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
+                                    <h3><a class="clickable link" href="${projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
                                     <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon">
                                     <br>
                                     <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased
@@ -222,7 +223,7 @@ const loadCollections = async() => {
                 let fakeJSX = `<div class="partner-collection" id="project-${id}">
                                 <img class="collection-img" src="${imageUri}">
                                 <div class="collection-info">
-                                    <h3><a class="clickable link" href="${WLinfo.projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
+                                    <h3><a class="clickable link" href="${projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
                                     <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon"> <br> <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</h4>
                                     <div class="inside-text collection-description">
                                     ${WLinfo.description}
