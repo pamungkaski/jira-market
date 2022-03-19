@@ -107,9 +107,6 @@ const addListing = async() => {
     catch (error) {
         window.alert(error);
     }
-
-
-
 }
 
 // General functions
