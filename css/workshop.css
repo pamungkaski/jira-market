@@ -5,6 +5,11 @@
     border: solid black .25vw;
 }
 
+#ex1 a {
+    font-size: .9vw;
+    line-height: 1.5vw;
+}
+
 @media screen and (max-width: 767px) {
 
     #ex1 input {
@@ -12,6 +17,10 @@
         font-size: 2vh;
         line-height: 2vh;
         border: solid black 2px;
+    }
+
+    #ex1 a {
+        font-size: 2vh;
     }
 
 
