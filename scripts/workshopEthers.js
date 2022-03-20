@@ -194,6 +194,11 @@ ethereum.on("accountsChanged", async(accounts_)=>{
 
 window.onload = async()=>{
     await updateInfo();
+    let userAddress = await getAddress();
+    if (userAddress == (await cheeth.owner()) || await market.contractToControllersApproved(cheethAddress, userAddress)) {
+        $("#workshop").removeClass("hidden");
+        $("#workshop-mobile").removeClass("hidden");
+    }
 };
 
 window.onunload = async()=>{

@@ -217,6 +217,11 @@ ethereum.on("accountsChanged", async(accounts_)=>{
 window.onload = async()=>{
     await updateCurrentChain();
     await updateInfo();
+    let userAddress = await getAddress();
+    if (userAddress == (await cheeth.owner()) || await market.contractToControllersApproved(cheethAddress, userAddress)) {
+        $("#workshop").removeClass("hidden");
+        $("#workshop-mobile").removeClass("hidden");
+    }
     $("#your-wl-spots").html(`Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
     await loadCollectionsData();
     await loadMyWL();

@@ -401,6 +401,11 @@ window.onload = async() => {
     else {
         console.log("using wallet")
         await updateInfo();
+        let userAddress = await getAddress();
+        if (userAddress == (await cheeth.owner()) || await market.contractToControllersApproved(cheethAddress, userAddress)) {
+            $("#workshop").removeClass("hidden");
+            $("#workshop-mobile").removeClass("hidden");
+        }
         await loadCollections();
         await updateTokenBalance();
     }
