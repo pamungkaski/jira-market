@@ -42,6 +42,34 @@ function showPast() {
     $("#live-button").removeClass("active");
 }
 
+function showCreate() {
+    $('#past-collections').addClass('hidden');
+    $('#live-collections').removeClass('hidden');
+    if ($("#live-collections .partner-collection").length > 3) {
+        $("#scroll-indicator").removeClass("hidden");
+    }
+    else {
+        $("#scroll-indicator").addClass("hidden");
+    }
+    $("#listing-select-div").addClass('hidden');
+    $("#create-button").addClass("active");
+    $("#modify-button").removeClass("active");
+}
+
+function showModify() {
+    $('#live-collections').addClass('hidden');
+    $('#past-collections').removeClass('hidden');
+    if ($("#past-collections .partner-collection").length > 3) {
+        $("#scroll-indicator").removeClass("hidden");
+    }
+    else {
+        $("#scroll-indicator").addClass("hidden");
+    }
+    $("#listing-select-div").removeClass('hidden');
+    $("#modify-button").addClass("active");
+    $("#create-button").removeClass("active");
+}
+
 function toggleMenu() {
     const el = document.getElementById("mobile-nav-menu")
     el.classList.toggle('expanded')

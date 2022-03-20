@@ -133,8 +133,17 @@
    </div>
    <br>
    <div id="market-section" class="section body-section body-1 wf-section">
+      <div id="selector-div">
+         <button id="create-button" class="button active" onclick="showCreate()">CREATE LISTING</button>
+         <button id="modify-button" class="button" onclick="showModify()">MODIFY LISTING</button>
+      </div>
+      <div class="section body-section body-1 wf-section hidden" id="listing-select-div" style="text-align: center;">
+         <select id="listing-select" style="text-align: center;" onchange="selectListing(this.value)">
+            <option disabled selected value="">SELECT LISTING</option>
+         </select>
+      </div>
       <div id="live-collections">
-         <div id="ex1" class="partner-collection example">
+         <div id="create-input" class="partner-collection example">
             <h3>ENTER INFO</h3>
             <br>
             <input id="listing-title" placeholder="title">
@@ -145,17 +154,17 @@
             <br>
             <input id="listing-description" placeholder="description">
             <br>
-            <input id="listing-amount" placeholder="amountAvailable">
+            <input type="number" min="1" id="listing-amount" placeholder="amountAvailable">
             <br>
             <input id="listing-deadline" placeholder="deadline (unix style - in seconds)">
             <br>
-            <input id="listing-price" placeholder="price (in CHEETH - ex: 20)">
+            <input type="number" min="0" id="listing-price" placeholder="price (in CHEETH - ex: 20)">
             <br>
             <a href="https://www.epochconverter.com/" target="_blank">LINK TO UNIX TIMESTAMP TOOL<br>Use "Human Date to Timestamp" -> Epoch Timestamp</a>
             <br>
-            <button class="button" onclick="generate()">GENERATE</button>
+            <button class="button" onclick="generateCreate()">GENERATE</button>
          </div>
-         <div id="ex2" class="partner-collection example">
+         <div id="create-template" class="partner-collection example">
             <img class="collection-img" id="ex-image" src="./images/silhouette.png">
             <div class="collection-info">
                <a href="" class="clickable link" id="ex-site">
@@ -170,6 +179,46 @@
                <div class="inside-text collection-description" id="ex-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare neque ut aliquam lobortis. Morbi non tellus dui. Proin pellentesque nisl non augue volutpat, eu convallis nibh pretium.
                </div>
                <button class="button" onclick="addListing()">ADD LISTING</button>
+            </div>
+         </div>
+      </div>
+      <div id="past-collections" class="hidden">
+         <div id="modify-input" class="partner-collection example">
+            <h3>ENTER INFO</h3>
+            <br>
+            <input id="listing-title" placeholder="title">
+            <br>
+            <input id="listing-image" placeholder="imageUri (1:1 aspect ratio)">
+            <br>
+            <input id="listing-site" placeholder="projectUri (website/twitter/etc)">
+            <br>
+            <input id="listing-description" placeholder="description">
+            <br>
+            <input type="number" min="1" id="listing-amount" placeholder="amountAvailable">
+            <br>
+            <input id="listing-deadline" placeholder="deadline (unix style - in seconds)">
+            <br>
+            <input type="number" min="0" id="listing-price" placeholder="price (in CHEETH - ex: 20)">
+            <br>
+            <a href="https://www.epochconverter.com/" target="_blank">LINK TO UNIX TIMESTAMP TOOL<br>Use "Human Date to Timestamp" -> Epoch Timestamp</a>
+            <br>
+            <button class="button" onclick="generateModify()">UPDATE</button>
+         </div>
+         <div id="modify-template" class="partner-collection example">
+            <img class="collection-img" id="ex-image" src="./images/silhouette.png">
+            <div class="collection-info">
+               <a href="" class="clickable link" id="ex-site">
+                  <h3 id="ex-title">???</h3>
+               </a>
+               <h4><span id="ex-remaining">???</span>/<span id="ex-amount">???</span> Purchased
+                  <br>
+                  <span id="ex-price">???</span> <img src="https://github.com/saintmaxi/cheeth-market/blob/main/images/cheethv2.png?raw=true" class="token-icon">
+                  <br>
+                  <span class="end-time">Ends <span id="ex-deadline">MM/DD/YYYY HH:MM AM</span></span>
+                  </h4>
+               <div class="inside-text collection-description" id="ex-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare neque ut aliquam lobortis. Morbi non tellus dui. Proin pellentesque nisl non augue volutpat, eu convallis nibh pretium.
+               </div>
+               <button class="button" onclick="modifyListing()">MODIFY LISTING</button>
             </div>
          </div>
       </div>

@@ -66,34 +66,37 @@ const getChainId = async()=>{
 
 // --- WORKSHOP FUNCTIONS ---
 
-const generate = async() => {
-    let title = $("#listing-title").val();
-    let image = $("#listing-image").val();
-    let site = ($("#listing-site").val()).includes("https://") ? $("#listing-site").val() : `https://${$("#listing-site").val()}`;
-    let description = $("#listing-description").val();
-    let amount = Number($("#listing-amount").val());
-    let deadline = $("#listing-deadline").val();
-    let price = Number($("#listing-price").val());
+// --- CREATE FUNCTIONS ---
 
-    $("#ex-title").html(title);
-    $("#ex-image").attr("src", image);
-    $("#ex-site").attr("href", site);
-    $("#ex-description").html(description);
-    $("#ex-amount").html(amount);
-    $("#ex-remaining").html(0);
-    $("#ex-deadline").html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
-    $("#ex-price").html(price);
+const generateCreate = async() => {
+    let mode = "create";
+    let title = $(`#${mode}-input #listing-title`).val();
+    let image = $(`#${mode}-input #listing-image`).val();
+    let site = ($(`#${mode}-input #listing-site`).val()).includes("https://") ? $(`#${mode}-input #listing-image`).val() : `https://${$(`#${mode}-input #listing-image`).val()}`;
+    let description = $(`#${mode}-input #listing-description`).val();
+    let amount = Number($(`#${mode}-input #listing-amount`).val());
+    let deadline = $(`#${mode}-input #listing-deadline`).val();
+    let price = Number($(`#${mode}-input #listing-price`).val());
+
+    $(`#${mode}-template #ex-title`).html(title);
+    $(`#${mode}-template #ex-image`).attr("src", image);
+    $(`#${mode}-template #ex-site`).attr("href", site);
+    $(`#${mode}-template #ex-description`).html(description);
+    $(`#${mode}-template #ex-amount`).html(amount);
+    $(`#${mode}-template #ex-remaining`).html(0);
+    $(`#${mode}-template #ex-deadline`).html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
+    $(`#${mode}-template #ex-price`).html(price);
 }
 
 const addListing = async() => {
     try {
-        let title = $("#listing-title").val();
-        let image = $("#listing-image").val();
-        let site = ($("#listing-site").val()).includes("https://") ? $("#listing-site").val() : `https://${$("#listing-site").val()}`;
-        let description = $("#listing-description").val();
-        let amount = Number($("#listing-amount").val());
-        let deadline = Number($("#listing-deadline").val());
-        let price = parseEther($("#listing-price").val());
+        let title = $("#create-input #listing-title").val();
+        let image = $("#create-input #listing-image").val();
+        let site = ($("#create-input #listing-site").val()).includes("https://") ? $("#create-input #listing-site").val() : `https://${$("#create-input #listing-site").val()}`;
+        let description = $("#create-input #listing-description").val();
+        let amount = Number($("#create-input #listing-amount").val());
+        let deadline = Number($("#create-input #listing-deadline").val());
+        let price = parseEther($("#create-input #listing-price").val());
         if (!(title && image && site && description && amount && deadline && price)) {
             await displayErrorMessage("Missing fields!")
         }
@@ -106,6 +109,109 @@ const addListing = async() => {
     catch (error) {
         if ((error.message).includes("You are not Authorized for this ERC20 Contract!")) {
             await displayErrorMessage(`You are not authorized to add listings for $CHEETH!`);
+        }
+        else if ((error.message).includes("User denied transaction signature")) {
+            console.log("Transaction rejected.");
+        }
+        else {
+            await displayErrorMessage("An error occurred. See console and window alert for details...")
+            window.alert(error);
+            console.log(error);
+        }
+    }
+}
+
+// --- MODIFY FUNCTIONS ---
+
+const loadListings = async() => {
+    let fakeJSX = "";
+    let listings = await market.getWLVendingItemsAll(cheethAddress);
+    for (let i = 0; i < listings.length; i++) {
+        let WLinfo = listings[i];
+        let valid =  WLinfo.deadline > (Date.now()/1000);
+        if (valid) {
+            fakeJSX += `<option value="${i}">${WLinfo.title}</option>`;
+        }
+    }
+    $("#listing-select").append(fakeJSX);
+}
+
+var currentlySelected;
+var currentlySelectedWLinfo;
+
+const selectListing = async(id) => {
+    currentlySelected = Number(id);
+    currentlySelectedWLinfo = await market.contractToWLVendingItems(cheethAddress, id);
+    let title = currentlySelectedWLinfo.title;
+    let image = currentlySelectedWLinfo.imageUri;
+    let site = (currentlySelectedWLinfo.projectUri).includes("https://") ? currentlySelectedWLinfo.projectUri : `https://${currentlySelectedWLinfo.projectUri}`;
+    let description = currentlySelectedWLinfo.description;
+    let amount = currentlySelectedWLinfo.amountAvailable;
+    let purchased = currentlySelectedWLinfo.amountPurchased;
+    let deadline = currentlySelectedWLinfo.deadline;
+    let price = Number(formatEther(currentlySelectedWLinfo.price));
+
+    $("#modify-template #ex-title").html(title);
+    $("#modify-template #ex-image").attr("src", image);
+    $("#modify-template #ex-site").attr("href", site);
+    $("#modify-template #ex-description").html(description);
+    $("#modify-template #ex-amount").html(amount);
+    $("#modify-template #ex-remaining").html(purchased);
+    $("#modify-template #ex-deadline").html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
+    $("#modify-template #ex-price").html(price);
+}
+
+const generateModify = async() => {
+    let mode = "modify";
+    let title = $("#modify-input #listing-title").val() ? $("#modify-input #listing-title").val() : currentlySelectedWLinfo.title;
+    let image = $("#modify-input #listing-image").val()? $("#modify-input #listing-image").val() : currentlySelectedWLinfo.imageUri;
+    let site = $("#modify-input #listing-site").val() ? $("#modify-input #listing-site").val() : currentlySelectedWLinfo.projectUri;
+    let siteFormatted = site.includes("https://") ? site : `https://${site}`;
+    let description = $("#modify-input #listing-description").val() ? $("#modify-input #listing-description").val() : currentlySelectedWLinfo.description;
+    let amount = $("#modify-input #listing-amount").val() ? Number($("#modify-input #listing-amount").val()) : currentlySelectedWLinfo.amountAvailable;
+    let purchased = currentlySelectedWLinfo.amountPurchased;
+    let deadline = $("#modify-input #listing-deadline").val() ? Number($("#modify-input #listing-deadline").val()) : currentlySelectedWLinfo.deadline;
+    let price = $("#modify-input #listing-price").val() ? $("#modify-input #listing-price").val() : Number(formatEther(currentlySelectedWLinfo.price));
+
+    $(`#${mode}-template #ex-title`).html(title);
+    $(`#${mode}-template #ex-image`).attr("src", image);
+    $(`#${mode}-template #ex-site`).attr("href", siteFormatted);
+    $(`#${mode}-template #ex-description`).html(description);
+    $(`#${mode}-template #ex-amount`).html(amount);
+    $(`#${mode}-template #ex-remaining`).html(purchased);
+    $(`#${mode}-template #ex-deadline`).html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
+    $(`#${mode}-template #ex-price`).html(price);
+}
+
+const modifyListing = async() => {
+    try {
+        let title = $("#modify-input #listing-title").val() ? $("#modify-input #listing-title").val() : currentlySelectedWLinfo.title;
+        let image = $("#modify-input #listing-image").val()? $("#modify-input #listing-image").val() : currentlySelectedWLinfo.imageUri;
+        let site = $("#modify-input #listing-site").val() ? $("#modify-input #listing-site").val() : currentlySelectedWLinfo.projectUri;
+        let siteFormatted = site.includes("https://") ? site : `https://${site}`;
+        let description = $("#modify-input #listing-description").val() ? $("#modify-input #listing-description").val() : currentlySelectedWLinfo.description;
+        let amount = $("#modify-input #listing-amount").val() ? Number($("#modify-input #listing-amount").val()) : currentlySelectedWLinfo.amountAvailable;
+        let purchased = currentlySelectedWLinfo.amountPurchased;
+        let deadline = $("#modify-input #listing-deadline").val() ? Number($("#modify-input #listing-deadline").val()) : currentlySelectedWLinfo.deadline;
+        let price = $("#modify-input #listing-price").val() ? parseEther($("#modify-input #listing-price").val()) : currentlySelectedWLinfo.price;
+        if (!(title && image && site && description && amount && deadline && price && (purchased != null))) {
+            await displayErrorMessage("Missing fields!")
+        }
+        else if (amount < purchased) {
+            await displayErrorMessage("Can't have less spots than already sold!")
+        }
+        else {
+            await market.modifyWLVendingItem(cheethAddress, currentlySelected, [title, image, siteFormatted, description, amount, purchased, deadline, price]).then( async(tx_) => {
+                await waitForTransaction(tx_);
+            });
+        }
+    }
+    catch (error) {
+        if ((error.message).includes("You are not Authorized for this ERC20 Contract!")) {
+            await displayErrorMessage(`You are not authorized to add listings for $CHEETH!`);
+        }
+        else if ((error.message).includes("User denied transaction signature")) {
+            console.log("Transaction rejected.");
         }
         else {
             await displayErrorMessage("An error occurred. See console and window alert for details...")
@@ -194,6 +300,7 @@ ethereum.on("accountsChanged", async(accounts_)=>{
 
 window.onload = async()=>{
     await updateInfo();
+    await loadListings();
     let userAddress = await getAddress();
     if (userAddress == (await cheeth.owner()) || await market.contractToControllersApproved(cheethAddress, userAddress)) {
         $("#workshop").removeClass("hidden");

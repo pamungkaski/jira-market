@@ -1,26 +1,32 @@
-#ex1 input {
+#modify-input input, #create-input input {
     width: 85%;
     font-size: .9vw;
     line-height: 1.5vw;
     border: solid black .25vw;
 }
 
-#ex1 a {
+#modify-input a, #create-input a {
     font-size: .9vw;
     line-height: 1.5vw;
 }
 
+#listing-select-div {
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
 @media screen and (max-width: 767px) {
 
-    #ex1 input {
+    #modify-input input, #create-input input {
         width: 85%;
         font-size: 2vh;
         line-height: 2vh;
         border: solid black 2px;
     }
 
-    #ex1 a {
+    #modify-input a, #create-input a {
         font-size: 2vh;
+        line-height: 2vh;
     }
 
 
