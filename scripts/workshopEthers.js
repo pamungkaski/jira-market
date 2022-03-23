@@ -97,7 +97,7 @@ const addListing = async() => {
         let amount = Number($("#create-input #listing-amount").val());
         let deadline = Number($("#create-input #listing-deadline").val());
         let price = parseEther($("#create-input #listing-price").val());
-        if (!(title && image && site && description && amount && deadline && price)) {
+        if (!(title && image && (site != null) && (description != null) && amount && deadline && price)) {
             await displayErrorMessage("Missing fields!")
         }
         else {
@@ -195,7 +195,7 @@ const modifyListing = async() => {
         let purchased = currentlySelectedWLinfo.amountPurchased;
         let deadline = $("#modify-input #listing-deadline").val() ? Number($("#modify-input #listing-deadline").val()) : currentlySelectedWLinfo.deadline;
         let price = $("#modify-input #listing-price").val() ? parseEther($("#modify-input #listing-price").val()) : currentlySelectedWLinfo.price;
-        if (!(title && image && site && description && amount && deadline && price && (purchased != null))) {
+        if (!(title && image && (site != null) && (description != null) && amount && deadline && price && (purchased != null))) {
             await displayErrorMessage("Missing fields!")
         }
         else if (amount < purchased) {
