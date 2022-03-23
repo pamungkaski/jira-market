@@ -56,7 +56,7 @@ const parseEther = (eth_) => { return ethers.utils.parseEther(eth_) }; // multip
 const getChainId = async() => { return await signer.getChainId() };
 
 // General Variables
-const maxInt = "115792089237316195423570985008687907853269984665640564039457584007913129639934";
+const maxInt = "115792089237316195423570985008687907853269984665640564039457584007913129639935";
 
 const loadingDiv = `<div id="ex1" class="partner-collection example">
                         <div class="cover">
