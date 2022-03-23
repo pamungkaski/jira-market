@@ -65,7 +65,7 @@ const getCollections = async() => {
                                     <span class="end-time">Ends ${(new Date(WLinfo.deadline*1000)).toLocaleDateString()} ${(new Date(WLinfo.deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
                                     </h4>
                                     <div class="inside-text collection-description">
-                                    ${WLinfo.description}
+                                    ${(WLinfo.description).replaceAll("\n", "<br>")}
                                     </div>
                                 </div>
                                 <button class="mint-prompt-button button" id="${id}-mint-button" onclick="connect()">CONNECT</button>
@@ -81,7 +81,7 @@ const getCollections = async() => {
                                     <h3><a class="clickable link" href="${projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
                                     <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon"> <br> <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</h4>
                                     <div class="inside-text collection-description">
-                                    ${WLinfo.description}
+                                    ${(WLinfo.description).replaceAll("\n", "<br>")}
                                     </div>
                                 </div>
                                 <button class="mint-prompt-button button" id="${id}-mint-button" onclick="connect()">CONNECT</button>

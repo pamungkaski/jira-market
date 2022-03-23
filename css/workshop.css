@@ -1,8 +1,12 @@
-#modify-input input, #create-input input {
+#modify-input input, #modify-input textarea, #create-input input, #create-input textarea {
     width: 85%;
     font-size: .9vw;
     line-height: 1.5vw;
     border: solid black .25vw;
+}
+
+textarea {
+    resize: vertical;
 }
 
 #modify-input a, #create-input a {
@@ -17,7 +21,7 @@
 
 @media screen and (max-width: 767px) {
 
-    #modify-input input, #create-input input {
+    #modify-input input, #modify-input textarea, #create-input input, #create-input textarea {
         width: 85%;
         font-size: 2vh;
         line-height: 2vh;

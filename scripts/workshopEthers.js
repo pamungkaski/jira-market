@@ -81,7 +81,7 @@ const generateCreate = async() => {
     $(`#${mode}-template #ex-title`).html(title);
     $(`#${mode}-template #ex-image`).attr("src", image);
     $(`#${mode}-template #ex-site`).attr("href", site);
-    $(`#${mode}-template #ex-description`).html(description);
+    $(`#${mode}-template #ex-description`).html(description.replaceAll("\n", "<br>"));
     $(`#${mode}-template #ex-amount`).html(amount);
     $(`#${mode}-template #ex-remaining`).html(0);
     $(`#${mode}-template #ex-deadline`).html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
@@ -155,7 +155,7 @@ const selectListing = async(id) => {
     $("#modify-template #ex-title").html(title);
     $("#modify-template #ex-image").attr("src", image);
     $("#modify-template #ex-site").attr("href", site);
-    $("#modify-template #ex-description").html(description);
+    $("#modify-template #ex-description").html(description.replaceAll("\n", "<br>"));
     $("#modify-template #ex-amount").html(amount);
     $("#modify-template #ex-remaining").html(purchased);
     $("#modify-template #ex-deadline").html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
@@ -177,7 +177,7 @@ const generateModify = async() => {
     $(`#${mode}-template #ex-title`).html(title);
     $(`#${mode}-template #ex-image`).attr("src", image);
     $(`#${mode}-template #ex-site`).attr("href", siteFormatted);
-    $(`#${mode}-template #ex-description`).html(description);
+    $(`#${mode}-template #ex-description`).text(description);
     $(`#${mode}-template #ex-amount`).html(amount);
     $(`#${mode}-template #ex-remaining`).html(purchased);
     $(`#${mode}-template #ex-deadline`).html(`${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`);
