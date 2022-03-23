@@ -99,7 +99,7 @@ const checkTokenApproval = async() => {
 
 const updateTokenBalance = async() => {
     const userAddress = await getAddress();
-    let balance = formatEther((await cheeth.balanceOf(userAddress)));
+    let balance = Number(formatEther((await cheeth.balanceOf(userAddress)))).toFixed(1);
     $("#token-balance").html(`${balance}`);
     $("#mobile-balance").html(`${balance}`);
 }
