@@ -125,7 +125,7 @@ const purchase = async(tokenAddress, id) => {
             await displayErrorMessage(`Error: Listing expired!`);
         }
         else if ((error.message).includes("Not enough tokens")) {
-            await displayErrorMessage(`Error: Not enough tokens!`);
+            await displayErrorMessage(`Error: Not enough $CHEETH!`);
         }
         else if ((error.message).includes("User denied transaction signature")) {
             console.log("Transaction rejected.");
