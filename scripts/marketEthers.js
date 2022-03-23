@@ -38,6 +38,7 @@ const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images
 
 if (window.ethereum == undefined) {
     displayErrorMessage('Use a web3 enabled browser to browse listings!');
+    loadInfuraListings();
 }
 
 // Initiate Provider 
