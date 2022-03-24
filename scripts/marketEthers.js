@@ -127,6 +127,9 @@ const purchase = async(tokenAddress, id) => {
         else if ((error.message).includes("Not enough tokens")) {
             await displayErrorMessage(`Error: Not enough $CHEETH!`);
         }
+        else if ((error.message).includes("transfer amount exceeds allowance")) {
+            await displayErrorMessage(`Error: Market not approved to spend $CHEETH!`);
+        }
         else if ((error.message).includes("User denied transaction signature")) {
             console.log("Transaction rejected.");
         }
