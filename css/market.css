@@ -450,7 +450,22 @@ h4 {
     color: #333333 !important;
 }
 
+#no-live-msg {
+    width: 50%;
+    margin: auto;
+}
+
+#no-live-msg button {
+    width: 45%;
+    margin: auto;
+}
+
 @media screen and (max-width: 767px) {
+
+    #no-live-msg {
+        width: 95%;
+        margin: auto;
+    }
 
     .down-arrow {
         width: 3vh;
