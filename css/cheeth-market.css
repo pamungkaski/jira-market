@@ -67,13 +67,13 @@ p {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 26%;
+	width: 29%;
 }
 
 #desktop-wallet-connect-div button {
 	width: 48%;
-	font-size: 1.2vw;
-	letter-spacing: 2px
+	font-size: 1.1vw;
+	letter-spacing: 1px
 }
 
 #discord-img {
@@ -109,7 +109,7 @@ p {
 	color: black !important;
 }
 
-#discord-failure {
+#discord.failure {
     background-color: #F72119 !important;
 }
 
