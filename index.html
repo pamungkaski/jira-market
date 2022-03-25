@@ -77,20 +77,20 @@
          <button class="button hide-on-mobile clickable" id="account" href="#" onclick=connect()>
             <span id="account-text">CONNECT</span>
          </button>
-         <button class="button hide-on-mobile" id="discord">
+         <button class="button hide-on-mobile" id="discord" onclick="promptForDiscord()">
             <img id="discord-img" src="./images/dc-black.png">
             <span id="discord-text"></span>
-            <img id="edit-img" src="./images/edit.png" onclick="promptForDiscord()">
+            <img id="edit-img" src="./images/edit.png">
          </button>
       </div>
       <div id="mobile-wallet-connect-div" class="hide-on-desktop">
          <button id="mobile-account" href="#" class="button" onclick=connect()>
             <span id="mobile-account-text">CONNECT</span>
          </button>
-         <button class="button" id="discord-mobile">
+         <button class="button" id="discord-mobile" onclick="promptForDiscord()">
             <img id="discord-img" src="./images/dc-black.png">
             <span id="discord-text-mobile"></span>
-            <img id="edit-img" src="./images/edit.png" onclick="promptForDiscord()">
+            <img id="edit-img" src="./images/edit.png">
          </button>
          <button id="navbar" href="#" class="button" onclick="toggleMenu()"></button>
       </div>
