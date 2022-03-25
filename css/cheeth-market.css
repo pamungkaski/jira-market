@@ -100,20 +100,20 @@ p {
 	box-shadow: none;
 }
 
-#discord.success {
+#discord.success, #discord-mobile.success {
     background-color: rgb(49, 219, 49) !important;
 }
 
-#discord.success:hover {
+#discord.success:hover, #discord-mobile.success:hover {
     background-color: rgb(49, 219, 49) !important;
 	color: black !important;
 }
 
-#discord.failure {
+#discord.failure, #discord-mobile.failure {
     background-color: #F72119 !important;
 }
 
-#discord.failure:hover {
+#discord.failure:hover, #discord-mobile.failure:hover {
     background-color: #F72119 !important;
 }
 
