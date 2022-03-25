@@ -74,7 +74,13 @@ function toggleMenu() {
     const el = document.getElementById("mobile-nav-menu")
     el.classList.toggle('expanded')
     el.classList.toggle('collapsed')
- }
+}
+
+function clearPendingTxs() {
+    localStorage.removeItem("CheethMarketPendingTxs");
+    pendingTransactions.clear();
+    location.reload();
+};
 
  const loadInfuraListings = async() => {
     const listings = await fetch(`API ENDPOINT HERE`).then(res => res.text());
