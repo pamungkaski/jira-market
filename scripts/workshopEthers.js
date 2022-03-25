@@ -291,8 +291,8 @@ setInterval(async()=>{
 
 const updateInfo = async () => {
     let userAddress = await getAddress();
-    $("#account").text(`${userAddress.substr(0,9)}..`);
-    $("#mobile-account").text(`${userAddress.substr(0,9)}...`);
+    $("#account").text(`${userAddress.substr(0,7)}..`);
+    $("#mobile-account").text(`${userAddress.substr(0,7)}...`);
 };
 
 ethereum.on("accountsChanged", async(accounts_)=>{

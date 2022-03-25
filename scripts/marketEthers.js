@@ -107,9 +107,15 @@ const updateTokenBalance = async() => {
 
 const purchase = async(tokenAddress, id) => {
     try {
-        await market.purchaseWLVendingItem(tokenAddress, id).then( async(tx_) => {
-            await waitForTransaction(tx_);
-        });
+        if (!discordSet) {
+            await displayErrorMessage("Error: Must set Discord ID to associate with purchases!")
+            await promptForDiscord();
+        }
+        else {
+            await market.purchaseWLVendingItem(tokenAddress, id).then( async(tx_) => {
+                await waitForTransaction(tx_);
+            });
+        }
     }
     catch (error) {
         if ((error.message).includes("Already purchased")) {
@@ -355,9 +361,9 @@ async function endLoading(tx, txStatus) {
 const updateInfo = async () => {
     await checkTokenApproval();
     let userAddress = await getAddress();
-    $("#account").text(`${userAddress.substr(0,9)}..`);
+    $("#account").text(`${userAddress.substr(0,7)}..`);
     $("#account").addClass(`connected`);
-    $("#mobile-account").text(`${userAddress.substr(0,9)}...`);
+    $("#mobile-account").text(`${userAddress.substr(0,7)}...`);
 };
 
 setInterval( async() => {

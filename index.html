@@ -30,7 +30,6 @@
    <div id="top">
       <div id="title-section" class="header">
          <div id="title">
-            <!-- <img src="./images/anonymice-logo.png" class="hide-on-desktop" style="margin:auto;width:90%"> -->
             <img src="./images/logo.png">
             <a href="./index.html" class="title-link">CHEETH MARKET</a>
          </div>
@@ -75,10 +74,24 @@
          </a>
       </div> -->
       <div id="desktop-wallet-connect-div">
-         <button class="button hide-on-mobile clickable" id="account" href="#" onclick=connect()>CONNECT</button>
+         <button class="button hide-on-mobile clickable" id="account" href="#" onclick=connect()>
+            <span id="account-text">CONNECT</span>
+         </button>
+         <button class="button hide-on-mobile" id="discord">
+            <img id="discord-img" src="./images/dc-black.png">
+            <span id="discord-text"></span>
+            <img id="edit-img" src="./images/edit.png" onclick="promptForDiscord()">
+         </button>
       </div>
       <div id="mobile-wallet-connect-div" class="hide-on-desktop">
-         <button id="mobile-account" href="#" class="button" onclick=connect()>CONNECT WALLET</button>
+         <button id="mobile-account" href="#" class="button" onclick=connect()>
+            <span id="mobile-account-text">CONNECT</span>
+         </button>
+         <button class="button" id="discord-mobile">
+            <img id="discord-img" src="./images/dc-black.png">
+            <span id="discord-text-mobile"></span>
+            <img id="edit-img" src="./images/edit.png" onclick="promptForDiscord()">
+         </button>
          <button id="navbar" href="#" class="button" onclick="toggleMenu()"></button>
       </div>
       <div id="expand-container">

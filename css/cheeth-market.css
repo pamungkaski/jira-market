@@ -65,19 +65,57 @@ p {
 
 #desktop-wallet-connect-div {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
-	width: 20%;
+	width: 26%;
 }
 
-#account {
+#desktop-wallet-connect-div button {
+	width: 48%;
+	font-size: 1.2vw;
+	letter-spacing: 2px
+}
+
+#discord-img {
+	height: 1.8vw;
+}
+
+#edit-img {
+	height: 1.4vw;
+}
+
+#edit-img:hover {
+	cursor: pointer;
+}
+
+#account, #discord {
 	text-align: center;
-	font-size: 1.4vw;
-	letter-spacing: 3px;
 	background-color: #F1C94B !important;
-	color:#333333 !important;
-	width: 95%;
+	color:black !important;
 	height: 50%;
   }
+
+#discord:hover {
+	cursor: default;
+	box-shadow: none;
+}
+
+#discord.success {
+    background-color: rgb(49, 219, 49) !important;
+}
+
+#discord.success:hover {
+    background-color: rgb(49, 219, 49) !important;
+	color: black !important;
+}
+
+#discord-failure {
+    background-color: #F72119 !important;
+}
+
+#discord.failure:hover {
+    background-color: #F72119 !important;
+}
 
   .button.loading, .button.connect {
 	background-color: #F1C94B !important;
@@ -267,7 +305,7 @@ h5 {
     box-shadow: 0 0 5000px 5000px rgba(0,0,0,0.88);
 }
 
-#error-popup, #status-popup {
+#error-popup, #status-popup, #discord-popup {
 	background-color: white;
     z-index: 99999;
     position:fixed;
@@ -282,7 +320,11 @@ h5 {
     box-shadow: 0 0 5000px 5000px rgba(0,0,0,0.88);
 }
 
-#error-popup p, #status-popup p {
+#discord-popup {
+    height: 50vh;
+}
+
+#error-popup p, #status-popup p, #discord-popup p {
     width: 90%;
     font-size: 2.5vw !important;
     line-height: 2.7vw !important;
@@ -295,6 +337,42 @@ h5 {
     text-align: center;
 	font-family: "IBM Plex Mono Medium", monospace;
 }
+
+
+#discord-popup p {
+	position: initial;
+	top: initial;
+	left: initial;
+	transform: none;
+	width: 95%;
+	margin: auto;
+	padding-bottom: 0;
+}
+  
+  #discord-popup #content {
+	width: 100%;
+	font-size: 2vw;
+	line-height: 2vw;
+	position: absolute;
+	color: black;
+	top: 50%;
+	left: 50%;
+	width: 90%;
+	transform: translate(-50%, -50%);
+  }
+  
+  #discord-popup #content input {
+	text-align: center;
+	border: solid black .5vw;
+	width: 80%;
+  }
+  
+  #discord-popup #content button {
+	margin: auto;
+	margin-top: 3%;
+	width: 75%;
+  }
+
 
 @keyframes blinker {
     50% {
@@ -315,7 +393,7 @@ h5 {
     background-color: #F72119 !important;
 }
 
-#block-screen, #block-screen-error, #block-screen-status, #block-screen-approval, #block-screen-loading {
+#block-screen, #block-screen-error, #block-screen-status, #block-screen-approval, #block-screen-loading, #block-screen-discord {
     z-index: 9998;
     width: 100vw;
     opacity: 0;
@@ -474,17 +552,41 @@ h5 {
 		line-height: 5.4vh !important;
 	}
 
-    #error-popup, #status-popup {
+    #error-popup, #status-popup, #discord-popup {
         width: 75vw;
         height: 15vh;
 		border-width: 5px;
     }
+
+	#discord-popup {
+		height: 45vh;
+	  }
 
     #error-popup p, #status-popup p {
         font-size: 4vw !important;
 		line-height: 4.2vw !important;
 		width: 80%;
     }
+
+	#discord-popup p {
+		padding: 0;
+		font-size: 3vh !important;
+		line-height: 3vh !important;
+		margin: auto !important;
+		margin-bottom: 3%;
+	  }
+	
+	  #discord-popup #content input {
+		border-width: 2px;
+		font-size: 4vw;
+		line-height: 4vw;
+		width: 90%;
+	  }
+
+	  #discord-popup #content button {
+		margin-top: 7%;
+		width: 90%;
+  }
 
 }
 
@@ -498,6 +600,14 @@ h5 {
 		border-width: 3px;
 		font-size: 3vh !important;
 		width: 90%;
+	}
+
+	#discord-img {
+		height: 3.3vh;
+	}
+	
+	#edit-img {
+		height: 2.3vh;
 	}
 }
 

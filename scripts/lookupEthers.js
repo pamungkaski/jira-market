@@ -96,7 +96,12 @@ const loadCollectionsData = async() => {
         if (purchased) {
             myWL.push(title);
         }
-        projectToWL.set(title, buyers);
+        let discordsAndBuyers = await Promise.all(buyers.map(async (buyer) => {
+            let discord = await identityMapper.addressToDiscord(buyer);
+            let discordResult = discord ? discord : "Discord Unknown";
+            return `${discordResult}: ${buyer}`;
+        }));
+        projectToWL.set(title, discordsAndBuyers);
         fakeJSX += `<option value="${title}">${title}</option>`;
         if (i == 0) {
             selectListing(title);
@@ -206,8 +211,8 @@ setInterval(async()=>{
 
 const updateInfo = async () => {
     let userAddress = await getAddress();
-    $("#account").text(`${userAddress.substr(0,9)}..`);
-    $("#mobile-account").text(`${userAddress.substr(0,9)}...`);
+    $("#account").text(`${userAddress.substr(0,7)}..`);
+    $("#mobile-account").text(`${userAddress.substr(0,7)}...`);
 };
 
 ethereum.on("accountsChanged", async(accounts_)=>{
