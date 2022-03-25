@@ -420,6 +420,8 @@
     }
 
     #mobile-account, #discord-mobile {
+        background-color: #F1C94B !important;
+        color: black !important;
         width: 40%;
     }
 
