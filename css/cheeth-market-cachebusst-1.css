@@ -84,21 +84,12 @@ p {
 	height: 1.4vw;
 }
 
-#edit-img:hover {
-	cursor: pointer;
-}
-
 #account, #discord {
 	text-align: center;
 	background-color: #F1C94B !important;
 	color:black !important;
 	height: 50%;
   }
-
-#discord:hover {
-	cursor: default;
-	box-shadow: none;
-}
 
 #discord.success, #discord-mobile.success {
     background-color: rgb(49, 219, 49) !important;
@@ -605,7 +596,7 @@ h5 {
 	#discord-img {
 		height: 3.3vh;
 	}
-	
+
 	#edit-img {
 		height: 2.3vh;
 	}
