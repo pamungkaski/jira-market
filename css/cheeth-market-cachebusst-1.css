@@ -99,6 +99,7 @@ p {
 	background-color: #F1C94B !important;
 	color:black !important;
 	height: 50%;
+	min-height: 3vw;
   }
 
 #discord.success, #discord-mobile.success {
