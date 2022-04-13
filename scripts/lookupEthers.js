@@ -4,7 +4,7 @@
 /*********************************************************************************/
 
 const cheethAddress = "0x54C4419b7be48889097a70Ef6Bdc47feAC54AEF5";
-const cheethAbi = () => { 
+const cheethAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"STAKE_LIMIT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"anonymiceAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cheethV1Address","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"claimAllRewards","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_miceIds","type":"uint256[]"}],"name":"claimRewardsByIds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mouseId","type":"uint256"}],"name":"getCheethOwedToThisMouse","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mouseId","type":"uint256"}],"name":"getMouseCheethEmission","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getStakedMiceData","outputs":[{"components":[{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"uint256","name":"stakedSince","type":"uint256"},{"internalType":"uint256","name":"cheethEmision","type":"uint256"}],"internalType":"struct CheethV2.StakedMouse[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getTotalRewardsForUser","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"isCheethSwapEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"miceClaimTimes","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"miceStakeTimes","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_anonymiceAddress","type":"address"},{"internalType":"address","name":"_cheethV1Address","type":"address"}],"name":"setAddresses","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_isCheethSwapEnabled","type":"bool"}],"name":"setIsCheethSwapEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_miceIds","type":"uint256[]"}],"name":"stakeMiceByIds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"stakedMiceQuantity","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"swapCheethV1ForV2","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"tokensStaked","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"unstakeAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_miceIds","type":"uint256[]"}],"name":"unstakeMiceByIds","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
 };
 
@@ -21,7 +21,7 @@ const correctChain = 1;
 /*********************************************************************************/
 
 // const cheethAddress = "0x403f391d5e2dD66E541C481C39F628E503d0CE3A";
-// const cheethAbi = () => { 
+// const cheethAbi = () => {
 //     return `[{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"burnAsController","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"burners","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"mintAsController","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"minters","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"to_","type":"address[]"},{"internalType":"uint256[]","name":"amounts_","type":"uint256[]"}],"name":"multiTransfer","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"from_","type":"address[]"},{"internalType":"address[]","name":"to_","type":"address[]"},{"internalType":"uint256[]","name":"amounts_","type":"uint256[]"}],"name":"multiTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"address_","type":"address"},{"internalType":"bool","name":"bool_","type":"bool"}],"name":"setBurner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"address_","type":"address"},{"internalType":"bool","name":"bool_","type":"bool"}],"name":"setMinter","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from_","type":"address"},{"internalType":"address","name":"to_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"new_","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
 // };
 
@@ -81,34 +81,54 @@ const updateTokenBalance = async() => {
     $("#mobile-balance").html(`${balance}`);
 }
 
+const splitArrayToChunks = (array_, chunkSize_) => {
+    let _arrays = Array(Math.ceil(array_.length / chunkSize_))
+        .fill()
+        .map((_, index) => index * chunkSize_)
+        .map((begin) => array_.slice(begin, begin + chunkSize_));
+
+    return _arrays;
+};
+
 var projectToWL = new Map();
 var myWL = [];
 
 const loadCollectionsData = async() => {
     let userAddress = await getAddress();
-    let numListings = await market.getWLVendingItemsLength(cheethAddress);
+    let numListings = Number(await market.getWLVendingItemsLength(cheethAddress));
     let fakeJSX = "";
-    for (let i = 0; i < numListings; i++) {
-        let buyers = await market.getWLPurchasersOf(cheethAddress, i);
-        let WLinfo = await market.contractToWLVendingItems(cheethAddress, i);
-        let title = WLinfo.title;
-        let purchased = buyers.includes(userAddress);
-        if (purchased) {
-            myWL.push(title);
-        }
-        let discordsAndBuyers = await Promise.all(buyers.map(async (buyer) => {
-            let discord = await identityMapper.addressToDiscord(buyer);
-            let discordResult = discord ? discord : "Discord Unknown";
-            return `${discordResult}: ${buyer}`;
-        }));
-        projectToWL.set(title, discordsAndBuyers);
-        fakeJSX += `<option value="${title}">${title}</option>`;
-        if (i == 0) {
-            selectListing(title);
-        }
+    let allListingIds = Array.from(Array(numListings).keys());
+    const chunks = splitArrayToChunks(allListingIds, 20);
+    let idToJSX = new Map();
+    let fullJSX = "";
+    for (const chunk of chunks) {
+        await Promise.all( chunk.map( async(id) => {
+            let buyers = await market.getWLPurchasersOf(cheethAddress, id);
+            let WLinfo = await market.contractToWLVendingItems(cheethAddress, id);
+            let title = WLinfo.title;
+            let deadline = WLinfo.deadline;
+            let purchased = buyers.includes(userAddress);
+            if (purchased) {
+                myWL.push(title);
+            }
+            let discordsAndBuyers = await Promise.all(buyers.map(async (buyer) => {
+                let discord = await identityMapper.addressToDiscord(buyer);
+                let discordResult = discord ? discord : "Discord Unknown";
+                return {discord: discordResult, address: buyer};
+            }));
+            projectToWL.set(title+deadline, discordsAndBuyers);
+            fakeJSX = `<option value="${title+deadline}">${title} ${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</option>`;
+            idToJSX.set(id, fakeJSX)
+            if (id == 0) {
+                selectListing(title+deadline);
+            }
+        }))
+    };
+    for (const listingId of allListingIds) {
+        fullJSX += idToJSX.get(listingId);
     }
     $("#listing-select").empty();
-    $("#listing-select").append(fakeJSX);
+    $("#listing-select").append(fullJSX);
 }
 
 const loadMyWL = async() => {
@@ -121,18 +141,35 @@ const loadMyWL = async() => {
     }
 }
 
-function selectListing(listingName) {
-    let wlArray = [...(projectToWL.get(listingName))];
+function selectListing(listingKey) {
+    let wlArray = [...(projectToWL.get(listingKey))].map(x => {
+        if (x.discord) {
+            return `${x.discord}: ${x.address}`;
+        }
+        else {
+            return x.address;
+        }
+    });
     let wlString = wlArray.join("<br>");
     $("#wl-section").empty();
     $("#wl-section").html(wlString);
-    updateDownload(listingName);
+    updateDownload(listingKey);
 }
 
-function updateDownload(listingName) {
-    let filename = `Project Godjira - ${listingName} WL.txt`;
-    let wlArray = [...(projectToWL.get(listingName))];
+function updateDownload(listingKey) {
+    let filename = `Anonymice - ${listingKey} WL.csv`;
+    let wlArray = [...(projectToWL.get(listingKey))].map(x => {
+        if (x.discord) {
+            headerRow = "DISCORD,ADDRESS\n";
+            return `"${x.discord}","${x.address}"`;
+        }
+        else {
+            headerRow = "ADDRESS\n";
+            return `"${x.address}"`;
+        }
+    });
     let wlString = wlArray.join("\n");
+    wlString = headerRow + wlString;
 
     $("#download-link").attr('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(wlString));
     $("#download-link").attr('download', filename);
@@ -227,7 +264,7 @@ window.onload = async()=>{
         $("#workshop").removeClass("hidden");
         $("#workshop-mobile").removeClass("hidden");
     }
-    $("#your-wl-spots").html(`Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
+    $("#your-wl-spots").html(`LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
     await loadCollectionsData();
     await loadMyWL();
     await updateTokenBalance();
