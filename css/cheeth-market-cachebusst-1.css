@@ -9,7 +9,7 @@ select {
 	font-size: 2vw !important;
 	border-style: solid;
 	background-color: #000000;
-	color: #1C3367 !important;
+	color: #00FFFF !important;
 	border-width: .5vw;
 	border-radius: 5px;
 	border: none;
@@ -112,11 +112,11 @@ p {
 }
 
 #discord.failure, #discord-mobile.failure {
-    background-color: #F72119 !important;
+    background-color: #FF0000 !important;
 }
 
 #discord.failure:hover, #discord-mobile.failure:hover {
-    background-color: #F72119 !important;
+    background-color: #FF0000 !important;
 }
 
   .button.loading, .button.connect {
@@ -206,7 +206,7 @@ p {
 .button {
 	touch-action: manipulation;
 	background-color: #000000 !important;
-	color: #1C3367 !important;
+	color: #00FFFF !important;
 	font-size: 1.4vw;
 	line-height: 1.7vw;
 	padding: .5vw;
@@ -226,16 +226,16 @@ p {
 }
 
 .title-link:hover {
-	color: #1C3367 !important;
+	color: #00FFFF !important;
 }
 
 .button:hover {
-	background-color: #1C3367 !important;
+	background-color: #00FFFF !important;
 	color: #000000 !important;
 }
 
 .link:hover {
-	color: #1C3367;
+	color: #00FFFF;
 }
 
 .section-title{
@@ -276,7 +276,7 @@ h5 {
     width: 100%;
     text-decoration: none;
     height: 5%;
-    background-color: #1C3367;
+    background-color: #00FFFF;
     border: solid white .3em;
     color: black;
     font-size: 1.2vw;
@@ -393,7 +393,7 @@ h5 {
 }
 
 .failure {
-    background-color: #F72119 !important;
+    background-color: #FF0000 !important;
 }
 
 #block-screen, #block-screen-error, #block-screen-status, #block-screen-approval, #block-screen-loading, #block-screen-discord {
