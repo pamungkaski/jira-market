@@ -63,7 +63,7 @@ const loadingDiv = `<div id="ex1" class="partner-collection example">
                         <div class="cover">
                             <button class="button loading" onclick="connect()">LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span></button>
                         </div>
-                        <img class="collection-img" src="./images/silhouette.png">
+                        <img class="collection-img" src="./images/silhouette.jpeg">
                         <div class="collection-info">
                             <h3>???</h3>
                             <h4>???/??? Purchased
