@@ -444,7 +444,7 @@ h4 {
 #scroll-indicator {
     -webkit-animation: bounce 1.3s infinite;
     animation: bounce 1.3s infinite;
-    color: #000000 !important;
+    color: #00FFFF !important;
 }
 
 #no-live-msg {
