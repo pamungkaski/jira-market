@@ -14,7 +14,7 @@ const marketAbi = () => {
 
 const etherscanBase = `https://etherscan.io/tx/`;
 const correctChain = 1;
-const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images/cheethv2.png?raw=true";
+const tokenImgURL = "https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true";
 
 /*********************************************************************************/
 /***********************************DEV CONFIG************************************/
@@ -32,7 +32,7 @@ const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images
 
 // const etherscanBase = `https://rinkeby.etherscan.io/tx/`;
 // const correctChain = 4;
-// const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images/cheethv2.png?raw=true";
+// const tokenImgURL = "https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true";
 
 /*********************************END CONFIG************************************/
 
@@ -131,10 +131,10 @@ const purchase = async(tokenAddress, id) => {
             await displayErrorMessage(`Error: Listing expired!`);
         }
         else if ((error.message).includes("Not enough tokens")) {
-            await displayErrorMessage(`Error: Not enough $CHEETH!`);
+            await displayErrorMessage(`Error: Not enough $JIRA!`);
         }
         else if ((error.message).includes("transfer amount exceeds allowance")) {
-            await displayErrorMessage(`Error: Market not approved to spend $CHEETH!`);
+            await displayErrorMessage(`Error: Market not approved to spend $JIRA!`);
         }
         else if ((error.message).includes("User denied transaction signature")) {
             console.log("Transaction rejected.");

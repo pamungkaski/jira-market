@@ -108,7 +108,7 @@ const addListing = async() => {
     }
     catch (error) {
         if ((error.message).includes("You are not Authorized for this ERC20 Contract!")) {
-            await displayErrorMessage(`You are not authorized to add listings for $CHEETH!`);
+            await displayErrorMessage(`You are not authorized to add listings for $JIRA!`);
         }
         else if ((error.message).includes("User denied transaction signature")) {
             console.log("Transaction rejected.");
@@ -209,7 +209,7 @@ const modifyListing = async() => {
     }
     catch (error) {
         if ((error.message).includes("You are not Authorized for this ERC20 Contract!")) {
-            await displayErrorMessage(`You are not authorized to add listings for $CHEETH!`);
+            await displayErrorMessage(`You are not authorized to add listings for $JIRA!`);
         }
         else if ((error.message).includes("User denied transaction signature")) {
             console.log("Transaction rejected.");

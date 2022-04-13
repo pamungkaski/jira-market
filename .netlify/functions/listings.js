@@ -2,7 +2,7 @@ const ethers = require('ethers');
 
 const infuraKey = process.env.INFURA_KEY;
 const provider = new ethers.providers.InfuraProvider("mainnet", infuraKey);
-const tokenImgURL = "https://github.com/saintmaxi/cheeth-market/blob/main/images/cheethv2.png?raw=true";
+const tokenImgURL = "https://github.com/pamungkaski/jira-market/tree/main/images/jira-coin-logo.png?raw=true";
 
 const cheethAddress = "0x54C4419b7be48889097a70Ef6Bdc47feAC54AEF5";
 
