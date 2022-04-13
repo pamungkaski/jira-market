@@ -8,8 +8,8 @@
 select {
 	font-size: 2vw !important;
 	border-style: solid;
-	background-color: #333333;
-	color: #F8E4A9 !important;
+	background-color: #000000;
+	color: #00FFFF !important;
 	border-width: .5vw;
 	border-radius: 5px;
 	border: none;
@@ -121,7 +121,7 @@ p {
 
   .button.loading, .button.connect {
 	background-color: #F1C94B !important;
-	color:#333333 !important;
+	color:#000000 !important;
   }
 
   #account.connected:hover {
@@ -131,12 +131,12 @@ p {
 
   .button.loading:hover {
 	background-color: #F1C94B !important;
-	color:#333333 !important;
+	color:#000000 !important;
   }
 
   .button.connect:hover {
 	background-color: #F1C94B !important;
-	color:#333333 !important;
+	color:#000000 !important;
 	cursor: pointer;
   }
 
@@ -204,8 +204,8 @@ p {
 
 .button {
 	touch-action: manipulation;
-	background-color: #333333 !important;
-	color: #F8E4A9 !important;
+	background-color: #000000 !important;
+	color: #00FFFF !important;
 	font-size: 1.4vw;
 	line-height: 1.7vw;
 	padding: .5vw;
@@ -215,7 +215,7 @@ p {
 }
 
 .link {
-	color: #333333;
+	color: #000000;
 	text-decoration: none
 }
 
@@ -225,16 +225,16 @@ p {
 }
 
 .title-link:hover {
-	color: #F8E4A9 !important;
+	color: #00FFFF !important;
 }
 
 .button:hover {
-	background-color: #F8E4A9 !important;
-	color: #333333 !important;
+	background-color: #00FFFF !important;
+	color: #000000 !important;
 }
 
 .link:hover {
-	color: #F8E4A9;
+	color: #00FFFF;
 }
 
 .section-title{
@@ -275,7 +275,7 @@ h5 {
     width: 100%;
     text-decoration: none;
     height: 5%;
-    background-color: #F8E4A9;
+    background-color: #00FFFF;
     border: solid white .3em;
     color: black;
     font-size: 1.2vw;
@@ -331,7 +331,7 @@ h5 {
     font-size: 2.5vw !important;
     line-height: 2.7vw !important;
     position: absolute;
-	color: #333333;
+	color: #000000;
     top: 50%;
     left: 50%;
 	padding: 1vw;
@@ -502,7 +502,7 @@ h5 {
 	#mobile-account {
 		width: 80%;
 		background-color: #F1C94B !important;
-		color:#333333 !important;
+		color:#000000 !important;
 	  }
 
 	#about {
