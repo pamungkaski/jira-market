@@ -170,28 +170,32 @@ function clearPendingTxs() {
  }
  
  var discordSet = false;
+ var tries = 0;
  
  const updateDiscord = async() => {
-     if (!discordSet) {
-         let userAddress = await getAddress();
-         let currentDiscord = await identityMapper.addressToDiscord(userAddress);
-         if (currentDiscord) {
-             discordSet = true
-             $("#discord-text").text("SET!");
-             $("#discord").addClass("success");
-             $("#discord").removeClass("failure");
-             $("#discord-text-mobile").text("SET!");
-             $("#discord-mobile").addClass("success");
-             $("#discord-mobile").removeClass("failure"); 
-         }
-         else {
-             $("#discord-text").text("NOT SET!");
-             $("#discord").addClass("failure");
-             $("#discord").removeClass("success"); 
-             $("#discord-text-mobile").text("NOT SET!");    
-             $("#discord-mobile").addClass("failure"); 
-             $("#discord-mobile").removeClass("success"); 
-         }
+     if (tries < 10) {
+        tries += 1;
+        if (!discordSet) {
+            let userAddress = await getAddress();
+            let currentDiscord = await identityMapper.addressToDiscord(userAddress);
+            if (currentDiscord) {
+                discordSet = true
+                $("#discord-text").text("SET!");
+                $("#discord").addClass("success");
+                $("#discord").removeClass("failure");
+                $("#discord-text-mobile").text("SET!");
+                $("#discord-mobile").addClass("success");
+                $("#discord-mobile").removeClass("failure"); 
+            }
+            else {
+                $("#discord-text").text("NOT SET!");
+                $("#discord").addClass("failure");
+                $("#discord").removeClass("success"); 
+                $("#discord-text-mobile").text("NOT SET!");    
+                $("#discord-mobile").addClass("failure"); 
+                $("#discord-mobile").removeClass("success"); 
+            }
+        }
      }
  }
  

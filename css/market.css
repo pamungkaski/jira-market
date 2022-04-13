@@ -246,7 +246,7 @@ h4 {
     padding-bottom: 20px;
 }
 
-.end-time {
+.end-time, .start-time {
     font-size: 1.2vw;
     line-height: 1.3vw;
 }
@@ -571,7 +571,7 @@ h4 {
         padding-top: 0;
     }
 
-    .end-time {
+    .end-time, .start-time {
         font-size: 3vh;
         line-height: 3.2vh;   
     }
