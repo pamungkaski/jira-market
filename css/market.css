@@ -64,7 +64,7 @@ h2 {
 }
 
 .active {
-	background-color: #00FFFF !important;
+	background-color: #1C3367 !important;
     color: #000000 !important;
 }
 
@@ -367,7 +367,7 @@ h4 {
 
 .purchased:hover {
     background-color: #9c9696 !important;
-    color: #00FFFF !important;
+    color: #1C3367 !important;
 }
 
 .cover button:hover {

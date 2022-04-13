@@ -397,7 +397,7 @@
     #navbar {
         touch-action: manipulation;
         width: 10%;
-        background-color: #F1C94B !important;
+        background-color: #00FFFF !important;
         background-image: url("../images/burger.png");
         background-size: 100% 100%;
     }
@@ -420,7 +420,7 @@
     }
 
     #mobile-account, #discord-mobile {
-        background-color: #F1C94B !important;
+        background-color: #00FFFF !important;
         color: black !important;
         width: 40%;
     }
