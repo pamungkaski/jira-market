@@ -1,6 +1,6 @@
 h1 {
-    color: #000000 !important;
-    border-bottom: solid .5vw #000000;
+    color: #00FFFF !important;
+    border-bottom: solid .5vw #00FFFF;
     padding-bottom: .5vw;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -14,7 +14,7 @@ h2 {
 
 #lookup {
     width: 70%;
-    color: #000000 !important;
+    color: #00FFFF !important;
 }
 
 #your-wl-spots {
@@ -23,7 +23,7 @@ h2 {
 }
 
 #cheeth-allocation {
-    border-top: solid .5vw #000000;
+    border-top: solid .5vw #00FFFF;
     padding-top: .5vw;
 }
 
@@ -31,7 +31,7 @@ h2 {
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding-top: 1.5vw !important;
-    border-top: solid .5vw #000000;
+    border-top: solid .5vw #00FFFF;
     width: 100%;
     min-height: 20vh;
     overflow-y: scroll;
@@ -75,12 +75,12 @@ select {
     }
 
     h1 {
-        border-bottom: solid 5px #000000;
+        border-bottom: solid 5px #00FFFF;
         padding-bottom: 4vh;
     }
 
     #cheeth-allocation {
-        border-top: solid 5px #000000;
+        border-top: solid 5px #00FFFF;
         padding-top: 4vh !important;
     }
 
@@ -91,7 +91,7 @@ select {
 
     #wl-section {
         width: 100%;
-        border-top: solid 5px #000000;
+        border-top: solid 5px #00FFFF;
         padding-top:4vh !important;
         font-size: 2vh;
         line-height: 2.2vh;
