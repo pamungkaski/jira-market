@@ -5,7 +5,7 @@ const infuraKey = process.env.INFURA_KEY;
 const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
 const tokenImgURL = "https://github.com/pamungkaski/jira-market/tree/main/images/jira-coin-logo.png?raw=true";
 
-const cheethAddress = "0x54C4419b7be48889097a70Ef6Bdc47feAC54AEF5";
+const cheethAddress = "0x517AB044bda9629E785657DbbCae95C40C8f452C";
 
 const marketAddress = "0x8F239Cbf8fCeb87a20A4D1933f2f048fCA2Eb6Df";
 const marketAbi = () => {
