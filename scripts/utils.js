@@ -111,12 +111,12 @@ function clearPendingTxs() {
  const identityMapperAbi = () => {
      return `[{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"addressToDiscord","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"addressToTwitter","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"discordTag_","type":"string"}],"name":"setDiscordIdentity","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"twitterTag_","type":"string"}],"name":"setTwitterIdentity","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
  }
- 
+
  const providerID = new ethers.providers.Web3Provider(window.ethereum, "any");
  const signerID = providerID.getSigner();
- 
+
  const identityMapper = new ethers.Contract(identityMapperAddress, identityMapperAbi(), signerID);
- 
+
   const promptForDiscord = async() => {
      if (!($("#discord-popup").length)) {
          let userAddress = await signer.getAddress();
@@ -137,14 +137,14 @@ function clearPendingTxs() {
          $("body").append(`<div id='block-screen-discord' style="height:${height}px" onclick="$('#discord-popup').remove();$('#block-screen-discord').remove()"></div>`);
      }
  }
- 
+
  const setDiscord = async() => {
      try {
          let name = $("#discord-name").val();
          console.log(name)
          if (name == "") {
              await displayErrorMessage(`Error: No User ID provided!`);
- 
+
          }
          else if (!(name.includes("#"))) {
              await displayErrorMessage(`Error: Must include "#" and numbers in ID!`);
@@ -168,10 +168,10 @@ function clearPendingTxs() {
          }
      }
  }
- 
+
  var discordSet = false;
  var tries = 0;
- 
+
  const updateDiscord = async() => {
      if (tries < 10) {
         tries += 1;
@@ -185,22 +185,22 @@ function clearPendingTxs() {
                 $("#discord").removeClass("failure");
                 $("#discord-text-mobile").text("SET!");
                 $("#discord-mobile").addClass("success");
-                $("#discord-mobile").removeClass("failure"); 
+                $("#discord-mobile").removeClass("failure");
             }
             else {
                 $("#discord-text").text("NOT SET!");
                 $("#discord").addClass("failure");
-                $("#discord").removeClass("success"); 
-                $("#discord-text-mobile").text("NOT SET!");    
-                $("#discord-mobile").addClass("failure"); 
-                $("#discord-mobile").removeClass("success"); 
+                $("#discord").removeClass("success");
+                $("#discord-text-mobile").text("NOT SET!");
+                $("#discord-mobile").addClass("failure");
+                $("#discord-mobile").removeClass("success");
             }
         }
      }
  }
- 
+
  var timeout = 100;
- 
+
  setInterval(async()=>{
      await updateDiscord();
      timeout = 5000;

@@ -27,131 +27,75 @@
 </head>
 
 <body class="body">
-   <div id="top">
-      <div id="title-section" class="header">
-         <div id="title">
-            <img src="./images/logo.png" style='object-fit: fill'>
-            <a href="./index.html" class="title-link">
-               <img href="./index.html" src="./images/project_godjira_logo.png" style='width: 50%; height: auto;object-fit: fill'>
-            </a>
-         </div>
-      </div>
+   <div id="top" class="container">
+      <a href="./index.html" class="title-logo-link">
+         <img href="./index.html" src="./images/logo.png" class="title-logo">
+      </a>
       <div id="header" class="header hide-on-mobile">
-         <div class="header-menu">
-            <a href="./index.html" class="link">
-               MARKET
-            </a>
-         </div>
-         <div class="header-menu">
-            <a href="./lookup.html" class="link">
-               LOOKUP
-            </a>
-         </div>
-         <div class="header-menu">
-            <a href="https://staking.projectgodjira.io/" class="link" target="_blank">
-               STAKING
-            </a>
-         </div>
-         <div class="header-menu hidden" id="workshop">
-            <a href="./workshop.html" class="link">
-               WORKSHOP
-            </a>
-         </div>
+         <a href="./index.html" class="link header-menu">
+            Marketplace
+         </a>
+         <a href="./lookup.html" class="link header-menu">
+            Purchased items
+         </a>
+         <a href="https://staking.projectgodjira.io/" class="link header-menu" target="_blank">
+            Staking
+         </a>
+         <a href="./workshop.html" class="link header-menu hidden" id="workshop">
+            Admin Dashboard
+         </a>
       </div>
-      <!-- <div class="hide-on-mobile" id="socials">
-         <a href="#" target="_blank" class="link w-inline-block">
-            <img src="images/twitter-black.png" loading="lazy" alt="">
-         </a>
-         <a href="#" target="_blank" class="link w-inline-block">
-            <img src="images/dc-white.png" loading="lazy" alt="">
-         </a>
-         <a href="#" target="_blank" class="link w-inline-block">
-            <img src="images/os-transparent.png" loading="lazy" alt="" style="background-color: transparent;border-radius: 50%;">
-         </a>
-         <a href="#" target="_blank" class="link w-inline-block">
-            <img src="images/mediumWhite.png" loading="lazy" alt="">
-         </a>
-         <a href="#" target="_blank" class="link w-inline-block">
-            <img class="etherscan" src="images/etherscan-white.png" loading="lazy" alt="" style="border-radius: 50%;">
-         </a>
-      </div> -->
       <div id="desktop-wallet-connect-div">
-         <button class="button hide-on-mobile clickable" id="account" href="#" onclick=connect()>
-            <span id="account-text">CONNECT</span>
+         <button class="button hide-on-mobile clickable header-button" id="account" href="#" onclick=connect()>
+            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M20 7.47534C20 6.93049 19.5583 6.48879 19.0135 6.48879H13.3632C12.8184 6.48879 12.3767 6.93049 12.3767 7.47534V10.435C12.3767 10.9798 12.8184 11.4215 13.3632 11.4215H19.0135C19.5583 11.4215 20 10.9798 20 10.435V7.47534ZM15.2031 10.1181C14.568 10.1181 14.0531 9.60323 14.0531 8.96807C14.0531 8.33291 14.568 7.81803 15.2031 7.81803C15.8383 7.81803 16.3532 8.33291 16.3532 8.96807C16.3532 9.60314 15.8383 10.1181 15.2031 10.1181Z" fill="#000000"/>
+               <path d="M11.077 5.1435H18.3857V2.18386C18.3857 1.44206 17.8121 0.838565 17.0702 0.838565H1.37516C0.633363 0.838565 0 1.44206 0 2.18386V15.8161C0 16.5579 0.633363 17.1614 1.37516 17.1614H17.0702C17.812 17.1614 18.3857 16.5579 18.3857 15.8161V12.7668H11.0904L11.077 5.1435Z" fill="#000000"/>
+            </svg>
+            <span id="account-text">Connect wallet</span>
          </button>
-         <button class="button hide-on-mobile" id="discord" onclick="promptForDiscord()">
-            <img id="discord-img" src="./images/dc-black.png">
+         <button class="button hide-on-mobile header-button" id="discord" onclick="promptForDiscord()">
+            <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M17.789 1.36144C16.4296 0.725426 14.9761 0.263197 13.4565 0C13.2699 0.337409 13.0519 0.791232 12.9016 1.15225C11.2862 0.909316 9.68567 0.909316 8.10001 1.15225C7.94972 0.791232 7.72674 0.337409 7.53844 0C6.01721 0.263197 4.56204 0.727124 3.20267 1.36481C0.460812 5.50811 -0.28246 9.5485 0.0891771 13.5315C1.90772 14.8896 3.67011 15.7145 5.40275 16.2544C5.83055 15.6656 6.21209 15.0397 6.54078 14.3801C5.91478 14.1422 5.31521 13.8487 4.74869 13.5079C4.89899 13.3966 5.046 13.2802 5.18803 13.1604C8.64342 14.7766 12.3978 14.7766 15.8119 13.1604C15.9556 13.2802 16.1026 13.3966 16.2512 13.5079C15.683 13.8504 15.0818 14.1439 14.4558 14.3818C14.7845 15.0397 15.1644 15.6673 15.5939 16.256C17.3282 15.7162 19.0922 14.8913 20.9107 13.5315C21.3468 8.91419 20.1658 4.9109 17.789 1.36144ZM7.01153 11.082C5.97426 11.082 5.12361 10.1136 5.12361 8.93443C5.12361 7.75521 5.95609 6.78518 7.01153 6.78518C8.06699 6.78518 8.91761 7.75351 8.89945 8.93443C8.90109 10.1136 8.06699 11.082 7.01153 11.082ZM13.9884 11.082C12.9511 11.082 12.1005 10.1136 12.1005 8.93443C12.1005 7.75521 12.9329 6.78518 13.9884 6.78518C15.0438 6.78518 15.8945 7.75351 15.8763 8.93443C15.8763 10.1136 15.0438 11.082 13.9884 11.082Z" fill="#000000"/>
+            </svg>
             <span id="discord-text"></span>
-            <img id="edit-img" src="./images/edit.png">
          </button>
       </div>
-      <div id="mobile-wallet-connect-div" class="hide-on-desktop">
-         <button id="mobile-account" href="#" class="button" onclick=connect()>
-            <span id="mobile-account-text">CONNECT</span>
+      <div id="mobile-wallet-connect-div" class="container hide-on-desktop">
+         <button id="mobile-account" href="#" class="button header-button" onclick=connect()>
+            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M20 7.47534C20 6.93049 19.5583 6.48879 19.0135 6.48879H13.3632C12.8184 6.48879 12.3767 6.93049 12.3767 7.47534V10.435C12.3767 10.9798 12.8184 11.4215 13.3632 11.4215H19.0135C19.5583 11.4215 20 10.9798 20 10.435V7.47534ZM15.2031 10.1181C14.568 10.1181 14.0531 9.60323 14.0531 8.96807C14.0531 8.33291 14.568 7.81803 15.2031 7.81803C15.8383 7.81803 16.3532 8.33291 16.3532 8.96807C16.3532 9.60314 15.8383 10.1181 15.2031 10.1181Z" fill="#000000"/>
+               <path d="M11.077 5.1435H18.3857V2.18386C18.3857 1.44206 17.8121 0.838565 17.0702 0.838565H1.37516C0.633363 0.838565 0 1.44206 0 2.18386V15.8161C0 16.5579 0.633363 17.1614 1.37516 17.1614H17.0702C17.812 17.1614 18.3857 16.5579 18.3857 15.8161V12.7668H11.0904L11.077 5.1435Z" fill="#000000"/>
+            </svg>
+            <span id="mobile-account-text">Connect</span>
          </button>
-         <button class="button" id="discord-mobile" onclick="promptForDiscord()">
-            <img id="discord-img" src="./images/dc-black.png">
+         <button class="button header-button" id="discord-mobile" onclick="promptForDiscord()">
+            <svg width="21" height="17" viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M17.789 1.36144C16.4296 0.725426 14.9761 0.263197 13.4565 0C13.2699 0.337409 13.0519 0.791232 12.9016 1.15225C11.2862 0.909316 9.68567 0.909316 8.10001 1.15225C7.94972 0.791232 7.72674 0.337409 7.53844 0C6.01721 0.263197 4.56204 0.727124 3.20267 1.36481C0.460812 5.50811 -0.28246 9.5485 0.0891771 13.5315C1.90772 14.8896 3.67011 15.7145 5.40275 16.2544C5.83055 15.6656 6.21209 15.0397 6.54078 14.3801C5.91478 14.1422 5.31521 13.8487 4.74869 13.5079C4.89899 13.3966 5.046 13.2802 5.18803 13.1604C8.64342 14.7766 12.3978 14.7766 15.8119 13.1604C15.9556 13.2802 16.1026 13.3966 16.2512 13.5079C15.683 13.8504 15.0818 14.1439 14.4558 14.3818C14.7845 15.0397 15.1644 15.6673 15.5939 16.256C17.3282 15.7162 19.0922 14.8913 20.9107 13.5315C21.3468 8.91419 20.1658 4.9109 17.789 1.36144ZM7.01153 11.082C5.97426 11.082 5.12361 10.1136 5.12361 8.93443C5.12361 7.75521 5.95609 6.78518 7.01153 6.78518C8.06699 6.78518 8.91761 7.75351 8.89945 8.93443C8.90109 10.1136 8.06699 11.082 7.01153 11.082ZM13.9884 11.082C12.9511 11.082 12.1005 10.1136 12.1005 8.93443C12.1005 7.75521 12.9329 6.78518 13.9884 6.78518C15.0438 6.78518 15.8945 7.75351 15.8763 8.93443C15.8763 10.1136 15.0438 11.082 13.9884 11.082Z" fill="#000000"/>
+            </svg>
             <span id="discord-text-mobile"></span>
-            <img id="edit-img" src="./images/edit.png">
          </button>
-         <button id="navbar" href="#" class="button" onclick="toggleMenu()"></button>
+         <button id="navbar" href="#" class="" onclick="toggleMenu()">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path d="M5 6.66667H35V10H5V6.66667ZM5 18.3333H35V21.6667H5V18.3333ZM5 30H35V33.3333H5V30Z" fill="#00FFFF"/>
+            </svg>
+         </button>
       </div>
-      <div id="expand-container">
+      <div id="expand-container" class="hide-on-desktop">
          <div id="mobile-nav-menu" class="collapsed">
             <div id="header" class="header hide-on-desktop">
-               <div class="header-menu">
-                  <a href="./index.html" class="link">
-                     MARKET
-                  </a>
-               </div>
-               <div class="header-menu">
-                  <a href="./lookup.html" class="link">
-                     LOOKUP
-                  </a>
-               </div>
-               <div class="header-menu">
-                  <a href="https://staking.projectgodjira.io/" class="link" target="_blank">
-                     STAKING
-                  </a>
-               </div>
-               <div class="header-menu hidden" id="workshop-mobile">
-                  <a href="./workshop.html" class="link">
-                     WORKSHOP
-                  </a>
-               </div>
-               <!-- <div class="header-menu" style="width: 100%;">
-                  BALANCE: <span id="mobile-balance">-</span> <img src="https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true" class="token-icon">
-               </div> -->
+               <a href="./index.html" class="header-menu link">
+                  Marketplace
+               </a>
+               <a href="./lookup.html" class="header-menu link">
+                  Purchased items
+               </a>
+               <a href="https://staking.projectgodjira.io/" class="header-menu link" target="_blank">
+                  Staking
+               </a>
+               <a href="./workshop.html" class="header-menu header-menu link hidden" id="workshop-mobile">
+                  Admin Dashboard
+               </a>
             </div>
-
-               <!-- <div class="header-menu">
-                  <a href="#" class="link">
-                     LINK
-                  </a>
-               </div>
-               <div class="header-menu">
-                  <a href="#" class="link">
-                     LINK
-                  </a>
-               </div>
-            </div>
-            <div class="hide-on-desktop" id="socials">
-               <a href="#" target="_blank" class="link w-inline-block">
-                  <img src="images/twitter-black.png" loading="lazy" alt="">
-               </a>
-               <a href="#" target="_blank" class="link w-inline-block">
-                  <img src="images/dc-white.png" loading="lazy" alt="">
-               </a>
-               <a href="#" target="_blank" class="link w-inline-block">
-                  <img src="images/os-transparent.png" loading="lazy" alt="" style="background-color: transparent;border-radius: 50%;">
-               </a>
-               <a href="#" target="_blank" class="link w-inline-block">
-                  <img src="images/mediumWhite.png" loading="lazy" alt="">
-               </a>
-               <a href="#" target="_blank" class="link w-inline-block">
-                  <img class="etherscan" src="images/etherscan-white.png" loading="lazy" alt="" style="border-radius: 50%;">
-               </a>
-            </div> -->
          </div>
       </div>
    </div>
@@ -163,9 +107,10 @@
    </div>
    <br>
    <div id="market-section" class="section body-section body-1 wf-section">
-      <div id="selector-div">
-         <button id="live-button" class="button active" onclick="showLive()">ACTIVE LISTINGS<span id="num-live"><br>(-)</span></button>
-         <button id="past-button" class="button" onclick="showPast()">PAST LISTINGS<span id="num-past"><br>(-)</span></button>
+      <div id="selector-div" class="container">
+         <button id="live-button" class="button active" onclick="showLive()">Active Listings<span id="num-live">(-)</span></button>
+         <div class="selector-separator"></div>
+         <button id="past-button" class="button" onclick="showPast()">Past Listings<span id="num-past">(-)</span></button>
       </div>
       <h2 id="scroll-indicator" class="hidden hide-on-mobile" style="text-align: center;color: white;">
          <img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">
@@ -173,43 +118,58 @@
       <h2 id="scroll-indicator" class="hide-on-desktop" style="text-align: center;color: white;">
          <img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">
       </h2>
-      <div id="live-collections">
+      <div id="live-collections-empty" class="container hidden">
+         <div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='http://discord.gg/projectgodjira' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>
+      </div>
+      <div id="live-collections" class="container example-collection">
          <div id="ex1" class="partner-collection example">
             <div class="cover">
-               <button class="button loading" onclick="connect()">CONNECT YOUR WALLET</button>
+               <button class="button loading" onclick="connect()">Connect your wallet</button>
             </div>
             <img class="collection-img" src="./images/silhouette.jpeg">
             <div class="collection-info">
-               <h3>???</h3>
-               <h4>???/??? Purchased
-                  <br>
-                  ??? <img src="https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true" class="token-icon">
-                  <br>
-                  <span class="end-time">Ends MM/DD/YYYY HH:MM AM</span>
-                  </h4>
-               <div class="inside-text collection-description">
-                  Project Godjira
+               <h3>
+                  ???
+                  <img src="./images/globe-link.svg" />
+               </h3>
+               <div class="row">
+                  <span>Ends in</span>
+                  <span class="end-time">MM/DD/YYYY HH:MM AM</span>
+               </div>
+               <div class="row">
+                  <span>Total Price</span>
+                  <span class="end-time">??? $JIRA/entry</span>
+               </div>
+               <div class="row">
+                  <span>Description</span>
+                  <span class="inside-text collection-description">Project Godjira</span>
                </div>
                <button class="button">PURCHASE</button>
             </div>
          </div>
       </div>
-      <div id="past-collections" class="hidden">
+      <div id="past-collections" class="container hidden example-collection">
          <div id="ex2" class="partner-collection example">
             <div class="cover">
-               <button class="button loading" onclick="connect()">CONNECT YOUR WALLET</button>
+               <button class="button loading" onclick="connect()">Connect your wallet</button>
             </div>
             <img class="collection-img" src="./images/silhouette.jpeg">
             <div class="collection-info">
-               <h3>???</h3>
-               <h4>???/??? Purchased
-                  <br>
-                  ??? <img src="https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true" class="token-icon">
-                  <br>
-                  <span class="end-time">Ends MM/DD/YYYY HH:MM AM</span>
-                  </h4>
-               <div class="inside-text collection-description">
-                  Project Godjira
+               <h3>
+                  ???
+                  <img src="./images/globe-link.svg" />
+               </h3>
+               <div class="row">
+                  <span>Ends in</span>
+                  <span class="end-time">MM/DD/YYYY HH:MM AM</span>
+               </div>
+               <div class="row">
+                  <span>Total Price</span>
+                  <span class="end-time">??? $JIRA/entry</span>
+               </div>
+               <div class="row">
+                  <span>Description</span>
+                  <span class="inside-text collection-description">Project Godjira</span>
                </div>
                <button class="button">SOLD OUT</button>
             </div>
@@ -218,8 +178,17 @@
    </div>
    </div>
    <div class="token-balance-float">
-      <div>Balance: <span id="token-balance">-</span> <img src="https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true" class="token-icon"></div>
-      <svg id="clear-cache" onclick="clearPendingTxs()" xmlns="http://www.w3.org/2000/svg" xml:space="preserve" id="Layer_1" version="1.1" viewBox="0 0 32 32"><path fill="#000000" d="M28 16c-1.219 0-1.797.859-2 1.766C25.269 21.03 22.167 26 16 26c-5.523 0-10-4.478-10-10S10.477 6 16 6c2.24 0 4.295.753 5.96 2H20c-1.104 0-2 .896-2 2s.896 2 2 2h6c1.104 0 2-.896 2-2V4c0-1.104-.896-2-2-2s-2 .896-2 2v.518C21.733 2.932 18.977 2 16 2 8.268 2 2 8.268 2 16s6.268 14 14 14c9.979 0 14-9.5 14-11.875C30 16.672 28.938 16 28 16z"/></svg>
+      <div>Balance: <span id="token-balance">-</span> <img src="./images/jira-token-logo.png" class="token-icon"></div>
+      <svg id="clear-cache" onclick="clearPendingTxs()" width="33" height="33" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+         <g clip-path="url(#clip0_2_5)">
+         <path d="M27.2783 12.1524C27.7951 13.4763 28.0633 14.874 28.08 16.2794L31.5863 15.7251L27.3151 21.6299L21.3819 17.3381L26.1494 16.5845C26.1966 13.4338 24.7079 10.3814 22.1116 8.50327C17.7497 5.34806 11.6341 6.32976 8.47887 10.6917C5.32365 15.0536 6.30541 21.1692 10.6673 24.3244C13.7217 26.5338 17.6844 26.7994 21.0091 25.0176L21.9201 26.7174C20.0148 27.7386 17.8648 28.212 15.7027 28.0867C13.4804 27.9579 11.3484 27.1972 9.53696 25.887C4.31344 22.1085 3.13781 14.7849 6.91628 9.56137C10.6947 4.33784 18.0183 3.16222 23.2419 6.94069C25.0669 8.26085 26.4626 10.063 27.2783 12.1524Z" fill="#00FFFF"/>
+         </g>
+         <defs>
+         <clipPath id="clip0_2_5">
+         <rect width="23.6012" height="23.6012" fill="white" transform="matrix(0.586094 -0.810243 -0.810243 -0.586094 19.1227 32.9553)"/>
+         </clipPath>
+         </defs>
+      </svg>
    </div>
    <div id="pending-transactions"></div>
    <script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=611d0d9b752438eba744e08d"

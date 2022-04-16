@@ -3,7 +3,7 @@
 /*********************************************************************************/
 
 const cheethAddress = "0x517AB044bda9629E785657DbbCae95C40C8f452C";
-const cheethAbi = () => { 
+const cheethAbi = () => {
     return `[{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"previousOwner","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[],"name":"STAKE_LIMIT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"owner","type":"address"},{"internalType":"address","name":"spender","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"anonymiceAddress","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"cheethV1Address","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"claimAllRewards","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_miceIds","type":"uint256[]"}],"name":"claimRewardsByIds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"subtractedValue","type":"uint256"}],"name":"decreaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mouseId","type":"uint256"}],"name":"getCheethOwedToThisMouse","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mouseId","type":"uint256"}],"name":"getMouseCheethEmission","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getStakedMiceData","outputs":[{"components":[{"internalType":"uint256","name":"tokenId","type":"uint256"},{"internalType":"uint256","name":"stakedSince","type":"uint256"},{"internalType":"uint256","name":"cheethEmision","type":"uint256"}],"internalType":"struct CheethV2.StakedMouse[]","name":"","type":"tuple[]"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"getTotalRewardsForUser","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender","type":"address"},{"internalType":"uint256","name":"addedValue","type":"uint256"}],"name":"increaseAllowance","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"isCheethSwapEnabled","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"miceClaimTimes","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"miceStakeTimes","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"renounceOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_anonymiceAddress","type":"address"},{"internalType":"address","name":"_cheethV1Address","type":"address"}],"name":"setAddresses","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bool","name":"_isCheethSwapEnabled","type":"bool"}],"name":"setIsCheethSwapEnabled","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_miceIds","type":"uint256[]"}],"name":"stakeMiceByIds","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"stakedMiceQuantity","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amount","type":"uint256"}],"name":"swapCheethV1ForV2","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_address","type":"address"}],"name":"tokensStaked","outputs":[{"internalType":"uint256[]","name":"","type":"uint256[]"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"sender","type":"address"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint256","name":"amount","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"unstakeAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256[]","name":"_miceIds","type":"uint256[]"}],"name":"unstakeMiceByIds","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
 };
 
@@ -21,7 +21,7 @@ const tokenImgURL = "https://github.com/pamungkaski/jira-market/blob/main/images
 /*********************************************************************************/
 
 // const cheethAddress = "0x403f391d5e2dD66E541C481C39F628E503d0CE3A";
-// const cheethAbi = () => { 
+// const cheethAbi = () => {
 //     return `[{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"spender","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"}],"name":"Transfer","type":"event"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"spender_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"burn","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"burnAsController","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"burnFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"burners","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"mintAsController","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"minters","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address[]","name":"to_","type":"address[]"},{"internalType":"uint256[]","name":"amounts_","type":"uint256[]"}],"name":"multiTransfer","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address[]","name":"from_","type":"address[]"},{"internalType":"address[]","name":"to_","type":"address[]"},{"internalType":"uint256[]","name":"amounts_","type":"uint256[]"}],"name":"multiTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"address_","type":"address"},{"internalType":"bool","name":"bool_","type":"bool"}],"name":"setBurner","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"address_","type":"address"},{"internalType":"bool","name":"bool_","type":"bool"}],"name":"setMinter","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"to_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"from_","type":"address"},{"internalType":"address","name":"to_","type":"address"},{"internalType":"uint256","name":"amount_","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"new_","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
 // };
 
@@ -41,7 +41,7 @@ if (window.ethereum == undefined) {
     loadInfuraListings();
 }
 
-// Initiate Provider 
+// Initiate Provider
 const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
 const signer = provider.getSigner();
 
@@ -51,7 +51,7 @@ const market = new ethers.Contract(marketAddress, marketAbi(), signer);
 
 // General Functions
 const connect = async() => { await provider.send("eth_requestAccounts", []) };
-const getAddress = async() => { try { return await signer.getAddress(); } catch { return false; }}; 
+const getAddress = async() => { try { return await signer.getAddress(); } catch { return false; }};
 const formatEther = (balance_) => { return ethers.utils.formatEther(balance_) }; // divides by 18 modulus
 const parseEther = (eth_) => { return ethers.utils.parseEther(eth_) }; // multiplies by 18 modulus
 const getChainId = async() => { return await signer.getChainId() };
@@ -60,23 +60,30 @@ const getChainId = async() => { return await signer.getChainId() };
 const maxInt = "115792089237316195423570985008687907853269984665640564039457584007913129639935";
 
 const loadingDiv = `<div id="ex1" class="partner-collection example">
-                        <div class="cover">
-                            <button class="button loading" onclick="connect()">LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span></button>
-                        </div>
-                        <img class="collection-img" src="./images/silhouette.jpeg">
-                        <div class="collection-info">
-                            <h3>???</h3>
-                            <h4>???/??? Purchased
-                            <br>
-                            ??? <img src="${tokenImgURL}" class="token-icon">
-                            <br>
-                            <span class="end-time">Ends MM/DD/YYYY HH:MM AM</span>
-                            </h4>
-                            <div class="inside-text collection-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare neque ut aliquam lobortis. Morbi non tellus dui. Proin pellentesque nisl non augue volutpat, eu convallis nibh pretium.
-                            </div>
-                            <button class="button">PURCHASE</button>
-                        </div>
-                    </div>`
+    <div class="cover">
+    <button class="button loading" onclick="connect()">Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></button>
+    </div>
+    <img class="collection-img" src="./images/silhouette.jpeg">
+    <div class="collection-info">
+    <h3>
+        ???
+        <img src="./images/globe-link.svg" />
+    </h3>
+    <div class="row">
+        <span>Ends in</span>
+        <span class="end-time">MM/DD/YYYY HH:MM AM</span>
+    </div>
+    <div class="row">
+        <span>Total Price</span>
+        <span class="end-time">??? $JIRA/entry</span>
+    </div>
+    <div class="row">
+        <span>Description</span>
+        <span class="inside-text collection-description">Project Godjira</span>
+    </div>
+    <button class="button">PURCHASE</button>
+    </div>
+    </div>`
 
 // Approval Functions
 
@@ -173,7 +180,7 @@ setInterval(async()=>{
                 let now = Date.now() / 1000;
                 let endTime = Number((await market.contractToWLVendingItems(cheethAddress, id)).endTime);
                 let distance = endTime - now;
-        
+
                 var hours = Math.floor(distance / (60 * 60));
                 var minutes = Math.floor((distance % (60 * 60)) / (60));
                 var seconds = Math.floor((distance % (60)));
@@ -187,7 +194,7 @@ setInterval(async()=>{
                 if (seconds < 10) {
                     seconds = `0${seconds}`;
                 }
-                              
+
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
                     if (blockTime > endTime) {
@@ -216,7 +223,7 @@ setInterval(async()=>{
                 let now = Date.now() / 1000;
                 let startTime = Number((await market.contractToWLVendingItems(cheethAddress, id)).startTime);
                 let distance = startTime - now;
-        
+
                 var hours = Math.floor(distance / (60 * 60));
                 var minutes = Math.floor((distance % (60 * 60)) / (60));
                 var seconds = Math.floor((distance % (60)));
@@ -230,7 +237,7 @@ setInterval(async()=>{
                 if (seconds < 10) {
                     seconds = `0${seconds}`;
                 }
-                              
+
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
                     if (blockTime > startTime) {
@@ -305,21 +312,29 @@ const loadCollections = async() => {
                 else {
                     button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchase('${cheethAddress}', ${id})">PURCHASE</button>`;
                 }
-                let fakeJSX = `<div class="partner-collection" id="project-${id}">
-                                <h4 class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></h4>
-                                <img class="collection-img" src="${imageUri}">
-                                <div class="collection-info">
-                                    <h3><a class="clickable link" href="${projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
-                                    <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon">
-                                    <br>
-                                    <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased
-                                    </h4>
-                                    <div class="inside-text collection-description">
-                                    ${(WLinfo.description).replaceAll("\n", "<br>")}
-                                    </div>
-                                </div>
-                                ${button}
-                                </div>`
+                let fakeJSX = `<div id="project-${id}" class="partner-collection">
+                    <img class="collection-img" src="${imageUri}">
+                    <div class="collection-info">
+                    <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
+                    </h3>
+                    <div class="row">
+                        <span>Ends in</span>
+                        <span class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>
+                    </div>
+                    <div class="row">
+                        <span>Total Price</span>
+                        <span>${collectionPrice} $JIRA/entry</span>
+                    </div>
+                    <div class="row">
+                        <span>Supply</span>
+                        <span><span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</span>
+                    </div>
+                    <div class="row">
+                        <span>Description</span>
+                        <span class="inside-text collection-description">${(WLinfo.description).replaceAll("\n", "<br>")}</span>
+                    </div>
+                    ${button}
+                    </div>`
 
                 idToLiveJSX.set(id, fakeJSX);
             }
@@ -335,17 +350,29 @@ const loadCollections = async() => {
                 else if (minted == maxSlots) {
                     button = `<button disabled class="mint-prompt-button button purchased" id="${id}-mint-button">SOLD OUT</button>`;
                 }
-                let fakeJSX = `<div class="partner-collection" id="project-${id}">
-                                <img class="collection-img" src="${imageUri}">
-                                <div class="collection-info">
-                                    <h3><a class="clickable link" href="${projectUri}" target="_blank" style="text-decoration: none;">${WLinfo.title}⬈</a></h3>
-                                    <h4>${collectionPrice} <img src="${tokenImgURL}" class="token-icon"> <br> <span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</h4>
-                                    <div class="inside-text collection-description">
-                                    ${(WLinfo.description).replaceAll("\n", "<br>")}
-                                    </div>
-                                </div>
-                                ${button}
-                                </div>`
+                let fakeJSX = `<div id="project-${id}" class="partner-collection">
+                    <img class="collection-img" src="${imageUri}">
+                    <div class="collection-info">
+                    <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
+                    </h3>
+                    <div class="row">
+                        <span>Ends in</span>
+                        <span class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>
+                    </div>
+                    <div class="row">
+                        <span>Total Price</span>
+                        <span>${collectionPrice} $JIRA/entry</span>
+                    </div>
+                    <div class="row">
+                        <span>Supply</span>
+                        <span><span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</span>
+                    </div>
+                    <div class="row">
+                        <span>Description</span>
+                        <span class="inside-text collection-description">${(WLinfo.description).replaceAll("\n", "<br>")}</span>
+                    </div>
+                    ${button}
+                    </div>`
 
                 idToPastJSX.set(id, fakeJSX);
             }
@@ -367,6 +394,8 @@ const loadCollections = async() => {
     $("#past-collections").append(pastJSX);
     $("#num-live").html(`<br>(${numLive})`);
     $("#num-past").html(`<br>(${numPast})`);
+    $("#live-collections").removeClass("example-collection");
+    $("#past-collections").removeClass("example-collection");
 
     if (numLive > 3 && $("#live-button").hasClass("active")) {
         $("#scroll-indicator").removeClass("hidden");
@@ -376,7 +405,8 @@ const loadCollections = async() => {
     }
 
     if (numLive == 0) {
-        $("#live-collections").append("<div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='http://discord.gg/projectgodjira' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>");
+        $("#live-collections").addClass("hidden");
+        $("#live-collections-empty").removeClass("hidden");
     }
 
     loadedCollections = true;
@@ -480,7 +510,7 @@ setInterval( async() => {
     }
 }, 5000)
 
-ethereum.on("accountsChanged", async (accounts_) => { 
+ethereum.on("accountsChanged", async (accounts_) => {
     await updateInfo();
     location.reload();
 });
