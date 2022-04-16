@@ -89,11 +89,19 @@ p {
 }
 
 #discord.failure, #discord-mobile.failure {
-    background-color: #FF0000 !important;
+    background-color: #071228 !important;
+		border-color: #FF0000 !important;
+		color: #FF0000 !important;
+}
+
+#discord.failure svg path, #discord-mobile.failure svg path {
+	fill: #FF0000 !important;
 }
 
 #discord.failure:hover, #discord-mobile.failure:hover {
-    background-color: #FF0000 !important;
+    background-color: #071228 !important;
+		border-color: #FF0000 !important;
+		color: #FF0000 !important;
 }
 
   .button.connect {
