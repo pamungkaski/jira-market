@@ -160,7 +160,6 @@ h2 {
     padding: 15px;
     position: relative;
     background: linear-gradient(180deg, #1C3367 0%, rgba(9, 21, 47, 0) 100%);
-    border: 0.614844px solid rgba(0, 0, 0, 0.5);
     filter: drop-shadow(0px 2.45938px 2.45938px rgba(0, 0, 0, 0.25));
     color: white;
     border-radius: 12px;
@@ -170,6 +169,12 @@ h2 {
     font-size: 20px;
     color: #00FFFF;
     margin-top: 10px;
+    height: 60px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .partner-collection a {
@@ -509,6 +514,10 @@ h4 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-left: 20px;
         margin-right: 20px;
+    }
+
+    .partner-collection {
+        background: linear-gradient(180deg, #1C3367 0%, rgba(9, 21, 47, 100) 100%);
     }
 
     #mint-prompt {
