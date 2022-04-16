@@ -334,7 +334,7 @@ const loadCollections = async() => {
                         <span class="inside-text collection-description">${(WLinfo.description).replaceAll("\n", "<br>")}</span>
                     </div>
                     ${button}
-                    </div>`
+                    </div></div>`
 
                 idToLiveJSX.set(id, fakeJSX);
             }
@@ -372,7 +372,7 @@ const loadCollections = async() => {
                         <span class="inside-text collection-description">${(WLinfo.description).replaceAll("\n", "<br>")}</span>
                     </div>
                     ${button}
-                    </div>`
+                    </div></div>`
 
                 idToPastJSX.set(id, fakeJSX);
             }
@@ -392,8 +392,8 @@ const loadCollections = async() => {
     $("#past-collections").empty();
     $("#live-collections").append(liveJSX);
     $("#past-collections").append(pastJSX);
-    $("#num-live").html(`<br>(${numLive})`);
-    $("#num-past").html(`<br>(${numPast})`);
+    $("#num-live").html(`(${numLive})`);
+    $("#num-past").html(`(${numPast})`);
     $("#live-collections").removeClass("example-collection");
     $("#past-collections").removeClass("example-collection");
 
