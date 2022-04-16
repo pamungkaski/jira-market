@@ -207,7 +207,7 @@ setInterval(async()=>{
                     }
                 }
                 else {
-                    $(`#timer-${id}`).html(`ENDS IN ${hours}:${minutes}:${seconds}`);
+                    $(`#timer-${id}`).html(`${hours}:${minutes}:${seconds}`);
                     $(`#timer-${id}`).addClass("pending");
                 }
             }
