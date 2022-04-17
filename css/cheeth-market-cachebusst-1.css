@@ -81,9 +81,11 @@ p {
 
 #discord.success, #discord-mobile.success {
     background-color: rgb(49, 219, 49) !important;
+		border-color: rgb(49, 219, 49) !important;
 }
 
 #discord.success:hover, #discord-mobile.success:hover {
+		border-color: rgb(49, 219, 49) !important;
     background-color: rgb(49, 219, 49) !important;
 	color: black !important;
 }
