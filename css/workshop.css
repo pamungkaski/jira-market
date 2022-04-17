@@ -1,22 +1,70 @@
 #modify-input input, #modify-input textarea, #create-input input, #create-input textarea {
-    width: 85%;
-    font-size: .9vw;
-    line-height: 1.5vw;
-    border: solid black .25vw;
+    width: 100%;
+    font-size: 16px;
+    padding: 10px;
+    color: black;
+}
+
+#modify-input h3, #create-input h3 {
+    color: white;
+    text-align: left;
+    height: auto;
+    justify-content: flex-start;
+    margin-top: 0;
+    font-size: 24px;
+}
+
+#modify-input label, #create-input label {
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+#modify-input a, #create-input a {
+    font-size: 10px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    line-height: 14px;
+}
+
+#modify-input button, #create-input button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#create-input, #modify-input {
+    padding: 20px;
+    width: 400px;
+}
+
+#create-button {
+    margin-right: 20px;
 }
 
 textarea {
     resize: vertical;
 }
 
-#admin-dashboard {
-    display: grid;
-    grid-template-columns: 400px 400px;
+.create-template-container {
+    width: 400px;
+    padding: 50px;
 }
 
-#modify-input a, #create-input a {
-    font-size: .9vw;
-    line-height: 1.5vw;
+.preview-text {
+    color: white;
+    font-size: 24px;
+}
+
+.selector-separator {
+    margin-right: 0px;
+    padding-left: 45px;
+}
+
+#live-collections, #past-collections {
+    display: flex;
+    justify-content: center;
+    border: none;
 }
 
 #listing-select-div {
@@ -47,5 +95,8 @@ textarea {
         line-height: 2vh;
     }
 
+    #create-button {
+        margin-right: 0;
+    }
 
 }

@@ -236,7 +236,17 @@
     margin-right: 20px;
 }
 
+.selector-separator {
+    margin-right: 25px;
+    padding-left: 25px;
+    border-right: 1px solid white;
+    opacity: 50%;
+}
+
 @media screen and (max-width: 991px) {
+    .selector-separator {
+        display: none;
+    }
 
     .left-number, .right-number {
         display: none;

@@ -7,14 +7,14 @@
 }
 
 select {
-	font-size: 2vw !important;
-	border-style: solid;
-	background-color: #000000;
-	color: #00FFFF !important;
-	border-width: .5vw;
-	border-radius: 5px;
+	font-size: 20px !important;
+	font-weight: 700 !important;
+	background-color: #00FFFF;
+	color: #000000 !important;
+	border-radius: 10px;
 	border: none;
 	min-width: 35%;
+	padding: 10px;
 }
 
 #clear-cache {

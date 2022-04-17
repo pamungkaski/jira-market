@@ -106,95 +106,132 @@
       </div>
       <div id="selector-div" class="container">
          <button id="create-button" class="button active" onclick="showCreate()">Create Listing</button>
-         <div class="selector-separator"></div>
          <button id="modify-button" class="button" onclick="showModify()">Modify Listing</button>
       </div>
       <div class="section body-section body-1 wf-section hidden" id="listing-select-div" style="text-align: center;">
          <select id="listing-select" style="text-align: center;" onchange="selectListing(this.value)">
-            <option disabled selected value="">SELECT LISTING</option>
+            <option disabled selected value="">Select listing</option>
          </select>
       </div>
-      <div class="container" id="admin-dashboard">
+      <div class="admin-dashboard container" id="live-collections">
          <div id="create-input" class="partner-collection example">
-            <h3>ENTER INFO</h3>
-            <br>
+            <h3>Fill in information</h3>
+            <label>Title</label>
             <input id="listing-title" placeholder="title">
-            <br>
+            <label>Image link</label>
             <input id="listing-image" placeholder="imageUri (1:1 aspect ratio)">
-            <br>
+            <label>Social (link)</label>
             <input id="listing-site" placeholder="projectUri (site link, can be empty)">
-            <br>
+            <label>Description</label>
             <textarea id="listing-description" placeholder="description (can be empty)" rows="1"></textarea>
-            <br>
+            <label>Amount available</label>
             <input type="number" min="1" id="listing-amount" placeholder="amountAvailable">
-            <br>
+            <label>Start time</label>
             <input id="listing-start" placeholder="start time (unix style - in seconds)">
-            <br>
+            <label>End time</label>
             <input id="listing-deadline" placeholder="deadline (unix style - in seconds)">
-            <br>
+            <label>Total price / entry (in $JIRA)</label>
             <input type="number" min="0" id="listing-price" placeholder="price (in JIRA - ex: 20)">
             <br>
             <a href="https://www.epochconverter.com/" target="_blank">LINK TO UNIX TIMESTAMP TOOL<br>Use "Human Date to Timestamp" -> Epoch Timestamp</a>
-            <br>
             <button class="button" onclick="generateCreate()">GENERATE</button>
          </div>
-         <div id="create-template" class="partner-collection example">
-            <h4><span class="start-time">Starts <span id="ex-start">MM/DD/YYYY HH:MM AM</span></span></h4>
-            <h4><span class="end-time">Ends <span id="ex-deadline">MM/DD/YYYY HH:MM AM</span></span></h4>
-            <img class="collection-img" id="ex-image" src="./images/silhouette.jpeg">
-            <div class="collection-info">
-               <a href="" class="clickable link" id="ex-site">
-                  <h3 id="ex-title">???</h3>
-               </a>
-               <h4><span id="ex-remaining">???</span>/<span id="ex-amount">???</span> Purchased
-                  <br>
-                  <span id="ex-price">???</span> <img src="https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true" class="token-icon">
-                  </h4>
-               <div class="inside-text collection-description" id="ex-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare neque ut aliquam lobortis. Morbi non tellus dui. Proin pellentesque nisl non augue volutpat, eu convallis nibh pretium.
+         <div class="selector-separator"></div>
+         <div class="create-template-container">
+            <h3 class="preview-text">Preview:</h3>
+            <div id="create-template" class="partner-collection example">
+               <img class="collection-img" id="ex-image" src="./images/silhouette.jpeg">
+               <div class="collection-info">
+                  <a href="" class="clickable link" id="ex-site">
+                     <h3>
+                        <span id="ex-title">???</span>
+                        <img src="./images/globe-link.svg" />
+                     </h3>
+                  </a>
+                  <div class="row">
+                     <span>Ends in</span>
+                     <span class="end-time">MM/DD/YYYY HH:MM AM</span>
+                  </div>
+                  <div class="row">
+                     <span>Total Price</span>
+                     <span>
+                        <span id="ex-price">???</span> $JIRA/entry</span>
+                     </span>
+                  </div>
+                  <div class="row">
+                     <span>Supply</span>
+                     <span>
+                        <span id="ex-remaining">???</span>/<span id="ex-amount">???</span>
+                        Purchased
+                     </span>
+                  </div>
+                  <div class="row">
+                     <span>Description</span>
+                     <span class="inside-text collection-description" id="ex-description">Project Godjira</span>
+                  </div>
+                  <button class="button listing-button" onclick="addListing()">ADD LISTING</button>
                </div>
-               <button class="button" onclick="addListing()">ADD LISTING</button>
             </div>
          </div>
       </div>
-      <div id="past-collections" class="hidden">
+      <div id="past-collections" class="admin-dashboard container hidden">
          <div id="modify-input" class="partner-collection example">
-            <h3>ENTER INFO</h3>
-            <br>
+            <h3>Fill in information</h3>
+            <label>Title</label>
             <input id="listing-title" placeholder="title">
-            <br>
+            <label>Image link</label>
             <input id="listing-image" placeholder="imageUri (1:1 aspect ratio)">
-            <br>
+            <label>Social (link)</label>
             <input id="listing-site" placeholder="projectUri (site link, can be empty)">
-            <br>
+            <label>Description</label>
             <textarea id="listing-description" placeholder="description (can be empty)" rows="1"></textarea>
-            <br>
+            <label>Amount available</label>
             <input type="number" min="1" id="listing-amount" placeholder="amountAvailable">
-            <br>
+            <label>Start time</label>
             <input id="listing-start" placeholder="start time (unix style - in seconds)">
-            <br>
+            <label>End time</label>
             <input id="listing-deadline" placeholder="deadline (unix style - in seconds)">
-            <br>
+            <label>Total price / entry (in $JIRA)</label>
             <input type="number" min="0" id="listing-price" placeholder="price (in JIRA - ex: 20)">
             <br>
             <a href="https://www.epochconverter.com/" target="_blank">LINK TO UNIX TIMESTAMP TOOL<br>Use "Human Date to Timestamp" -> Epoch Timestamp</a>
-            <br>
             <button class="button" onclick="generateModify()">UPDATE</button>
          </div>
-         <div id="modify-template" class="partner-collection example">
-            <h4><span class="start-time">Starts <span id="ex-start">MM/DD/YYYY HH:MM AM</span></span></h4>
-            <h4><span class="end-time">Ends <span id="ex-deadline">MM/DD/YYYY HH:MM AM</span></span></h4>
-            <img class="collection-img" id="ex-image" src="./images/silhouette.jpeg">
-            <div class="collection-info">
-               <a href="" class="clickable link" id="ex-site">
-                  <h3 id="ex-title">???</h3>
-               </a>
-               <h4><span id="ex-remaining">???</span>/<span id="ex-amount">???</span> Purchased
-                  <br>
-                  <span id="ex-price">???</span> <img src="https://github.com/pamungkaski/jira-market/blob/main/images/jira-coin-logo.png?raw=true" class="token-icon">
-                  </h4>
-               <div class="inside-text collection-description" id="ex-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ornare neque ut aliquam lobortis. Morbi non tellus dui. Proin pellentesque nisl non augue volutpat, eu convallis nibh pretium.
+         <div class="selector-separator"></div>
+         <div class="create-template-container">
+            <h3 class="preview-text">Preview:</h3>
+            <div id="modify-template" class="partner-collection example">
+               <img class="collection-img" id="ex-image" src="./images/silhouette.jpeg">
+               <div class="collection-info">
+                  <a href="" class="clickable link" id="ex-site">
+                     <h3>
+                        <span id="ex-title">???</span>
+                        <img src="./images/globe-link.svg" />
+                     </h3>
+                  </a>
+                  <div class="row">
+                     <span>Ends in</span>
+                     <span class="end-time">MM/DD/YYYY HH:MM AM</span>
+                  </div>
+                  <div class="row">
+                     <span>Total Price</span>
+                     <span>
+                        <span id="ex-price">???</span> $JIRA/entry</span>
+                     </span>
+                  </div>
+                  <div class="row">
+                     <span>Supply</span>
+                     <span>
+                        <span id="ex-remaining">???</span>/<span id="ex-amount">???</span>
+                        Purchased
+                     </span>
+                  </div>
+                  <div class="row">
+                     <span>Description</span>
+                     <span class="inside-text collection-description" id="ex-description">Project Godjira</span>
+                  </div>
+                  <button class="button listing-button" onclick="modifyListing()">MODIFY LISTING</button>
                </div>
-               <button class="button" onclick="modifyListing()">MODIFY LISTING</button>
             </div>
          </div>
       </div>
