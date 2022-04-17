@@ -137,13 +137,13 @@ const correctChain = 1;
 
   const loadMyWL = async() => {
       if (purchasedJSX.length == 0) {
-          $("#your-wl-spots").html("<h3>No spots purchased!</h3>");
+          $("#your-wl-spots-text").html("<h3>No spots purchased!</h3>");
+          $("#your-wl-spots").empty();
       }
       else {
+          $("#your-wl-spots-text").empty();
           $("#your-wl-spots").empty();
           $("#your-wl-spots").append(purchasedJSX);
-          //   let wlString = myWL.join("<br>");
-        //   $("#your-wl-spots").html(wlString);
       }
   }
 
@@ -235,7 +235,7 @@ const correctChain = 1;
           $("#workshop-mobile").removeClass("hidden");
           $("#lookup-mobile").removeClass("hidden");
       }
-      $("#your-wl-spots").html(`<h3>LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
+      $("#your-wl-spots-text").html(`<h3>LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
       await loadCollectionsData();
       await loadMyWL();
       await updateTokenBalance();

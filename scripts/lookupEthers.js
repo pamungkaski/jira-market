@@ -92,7 +92,6 @@ const splitArrayToChunks = (array_, chunkSize_) => {
 };
 
 var projectToWL = new Map();
-var myWL = [];
 
 const loadCollectionsData = async() => {
     let userAddress = await getAddress();
@@ -109,9 +108,6 @@ const loadCollectionsData = async() => {
             let title = WLinfo.title;
             let deadline = WLinfo.endTime;
             let purchased = buyers.includes(userAddress);
-            if (purchased) {
-                myWL.push(title);
-            }
             let discordsAndBuyers = await Promise.all(buyers.map(async (buyer) => {
                 let discord = await identityMapper.addressToDiscord(buyer);
                 let discordResult = discord ? discord : "Discord Unknown";
@@ -130,16 +126,6 @@ const loadCollectionsData = async() => {
     }
     $("#listing-select").empty();
     $("#listing-select").append(fullJSX);
-}
-
-const loadMyWL = async() => {
-    if (myWL.length == 0) {
-        $("#your-wl-spots").html("No spots purchased!");
-    }
-    else {
-        let wlString = myWL.join("<br>");
-        $("#your-wl-spots").html(wlString);
-    }
 }
 
 function selectListing(listingKey) {
@@ -266,9 +252,7 @@ window.onload = async()=>{
         $("#workshop-mobile").removeClass("hidden");
         $("#lookup-mobile").removeClass("hidden");
     }
-    $("#your-wl-spots").html(`LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
     await loadCollectionsData();
-    await loadMyWL();
     await updateTokenBalance();
 };
 
