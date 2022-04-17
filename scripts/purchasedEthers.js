@@ -138,10 +138,11 @@ const correctChain = 1;
   const loadMyWL = async() => {
       if (purchasedJSX.length == 0) {
           $("#your-wl-spots-text").html("<h3>No spots purchased!</h3>");
-          $("#your-wl-spots").empty();
+          $("#your-wl-spots").addClass("hidden");
       }
       else {
           $("#your-wl-spots-text").empty();
+          $("#your-wl-spots").removeClass("hidden");
           $("#your-wl-spots").empty();
           $("#your-wl-spots").append(purchasedJSX);
       }

@@ -1,3 +1,8 @@
-#your-wl-spots h3 {
+#your-wl-spots-text h3 {
   color: white;
+}
+
+.purchased-title {
+  margin-bottom: 30px;
+  margin-top: 0;
 }
