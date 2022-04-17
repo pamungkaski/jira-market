@@ -96,7 +96,6 @@ const correctChain = 1;
   const loadCollectionsData = async() => {
       let userAddress = await getAddress();
       let numListings = Number(await market.getWLVendingItemsLength(cheethAddress));
-      let fakeJSX = "";
       let allListingIds = Array.from(Array(numListings).keys());
       const chunks = splitArrayToChunks(allListingIds, 20);
       let purchasedJSX = "";
@@ -132,19 +131,19 @@ const correctChain = 1;
                   </div>
                   <button disabled class="mint-prompt-button button purchased" id="${id}-mint-button">PURCHASED</button>
                   </div></div>`
-                myWL.push(fakeJSX);
+                purchasedJSX.push(fakeJSX);
               }
           }))
       };
   }
 
   const loadMyWL = async() => {
-      if (myWL.length == 0) {
-          $("#your-wl-spots").html("No spots purchased!");
+      if (purchasedJSX.length == 0) {
+          $("#your-wl-spots").html("<h3>No spots purchased!</h3>");
       }
       else {
-          $("#live-collections").empty();
-          $("#live-collections").append(myWL);
+          $("#your-wl-spots").empty();
+          $("#your-wl-spots").append(purchasedJSX);
           //   let wlString = myWL.join("<br>");
         //   $("#your-wl-spots").html(wlString);
       }

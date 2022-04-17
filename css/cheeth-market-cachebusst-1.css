@@ -276,7 +276,7 @@ h5 {
 }
 
 #error-popup, #status-popup, #discord-popup {
-	background-color: #000000;
+	background-color: #071228;
     z-index: 99999;
     position:fixed;
     top:50%;
@@ -284,7 +284,7 @@ h5 {
     transform: translate(-50%, -50%);
     width: 53vw;
     height: 35vh;
-    border: solid 3px #00FFFF;
+    border: solid 3px #1C3367;
 	border-radius: 15px;
     text-align: center;
     box-shadow: 0 0 5000px 5000px rgba(0,0,0,0.88);
@@ -295,19 +295,21 @@ h5 {
 }
 
 #error-popup p, #status-popup p, #discord-popup p {
-    width: 90%;
-    font-size: 2.5vw !important;
-    line-height: 2.7vw !important;
-    position: absolute;
+	width: 90%;
+	position: absolute;
 	color: white;
-    top: 50%;
-    left: 50%;
+	top: 50%;
+	left: 50%;
 	padding: 1vw;
-    transform: translate(-50%, -50%);
-    text-align: center;
-	font-family: "Ubuntu", monospace;
+	transform: translate(-50%, -50%);
+	text-align: center;
 }
 
+#error-popup p, #status-popup p {
+	font-size: 2.5vw !important;
+	line-height: 2.7vw !important;
+	font-family: "Ubuntu", monospace;
+}
 
 #discord-popup p {
 	position: initial;
@@ -317,12 +319,19 @@ h5 {
 	width: 95%;
 	margin: auto;
 	padding-bottom: 0;
+	font-size: 22px !important;
+	line-height: 12px !important;
+	font-weight: 400;
+}
+
+#discord-popup img {
+	width: 50%;
+	margin-bottom: 20px;
 }
 
   #discord-popup #content {
 	width: 100%;
-	font-size: 2vw;
-	line-height: 2vw;
+	font-size: 24px;
 	position: absolute;
 	color: black;
 	top: 50%;
@@ -333,14 +342,22 @@ h5 {
 
   #discord-popup #content input {
 	text-align: center;
-	border: solid black .5vw;
-	width: 80%;
+	width: 70%;
+	padding: 8px;
+	border: 1px solid white;
+	background-color: #071228;
+	color: white;
+	border-radius: 10px;
+	margin-top: 10px;
   }
 
   #discord-popup #content button {
 	margin: auto;
 	margin-top: 3%;
-	width: 75%;
+	width: 70%;
+	font-size: 18px;
+	border-radius: 10px;
+	padding: 12px;
   }
 
 

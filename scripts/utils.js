@@ -123,15 +123,16 @@ function clearPendingTxs() {
          let currentDiscord = await identityMapper.addressToDiscord(userAddress);
          let discordString = currentDiscord ? currentDiscord : "None";
          let fakeJSX = `<div id="discord-popup">
-                         <div id="content">
-                          <p>Enter Discord User ID to associate with purchases.</p>
-                          <p>Current: ${discordString}</p>
-                          <br>
-                          <input id="discord-name" type="text" spellcheck="false" value="" placeholder="user#1234">
-                          <br>
-                          <button class="button" onclick="setDiscord()"">SET DISCORD</button>
-                         </div>
-                        </div>`;
+            <div id="content">
+            <img src="./images/logo-2.png" />
+            <p>Enter Discord User ID to associate with purchases.</p>
+            <p>Current: ${discordString}</p>
+            <br>
+            <input id="discord-name" type="text" spellcheck="false" value="" placeholder="user#1234">
+            <br>
+            <button class="button" onclick="setDiscord()"">Set discord</button>
+            </div>
+        </div>`;
          $("body").append(fakeJSX);
          let height = $(document).height();
          $("body").append(`<div id='block-screen-discord' style="height:${height}px" onclick="$('#discord-popup').remove();$('#block-screen-discord').remove()"></div>`);
