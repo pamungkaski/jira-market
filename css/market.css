@@ -164,9 +164,6 @@ h2 {
     margin-top: 10px;
     height: 60px;
     overflow: hidden;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
@@ -179,8 +176,12 @@ h2 {
     margin-left: 5px;
 }
 
-.partner-collection a:hover {
-    color: #FFFFFF;
+.partner-collection .collection-description {
+    max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
 }
 
 .collection-twitter {
