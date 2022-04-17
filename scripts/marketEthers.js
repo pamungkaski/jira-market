@@ -195,6 +195,8 @@ setInterval(async()=>{
                     seconds = `0${seconds}`;
                 }
 
+                $(`#timer-text-${id}`).html("Ends in");
+
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
                     if (blockTime > endTime) {
@@ -238,6 +240,8 @@ setInterval(async()=>{
                     seconds = `0${seconds}`;
                 }
 
+                $(`#timer-text-${id}`).html("Live in");
+
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
                     if (blockTime > startTime) {
@@ -251,7 +255,7 @@ setInterval(async()=>{
                     }
                 }
                 else {
-                    $(`#timer-${id}`).html(`LIVE IN ${hours}:${minutes}:${seconds}`);
+                    $(`#timer-${id}`).html(`${hours}:${minutes}:${seconds}`);
                     $(`#timer-${id}`).addClass("pending");
                 }
             }
@@ -318,7 +322,7 @@ const loadCollections = async() => {
                     <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
                     </h3>
                     <div class="row">
-                        <span>Ends in</span>
+                        <span id="timer-text-${id}"></span>
                         <span class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>
                     </div>
                     <div class="row">
