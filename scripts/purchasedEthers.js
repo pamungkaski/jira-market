@@ -235,7 +235,7 @@ const correctChain = 1;
           $("#workshop-mobile").removeClass("hidden");
           $("#lookup-mobile").removeClass("hidden");
       }
-      $("#your-wl-spots").html(`LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
+      $("#your-wl-spots").html(`<h3>LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
       await loadCollectionsData();
       await loadMyWL();
       await updateTokenBalance();
