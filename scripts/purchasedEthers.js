@@ -90,15 +90,13 @@ const correctChain = 1;
       return _arrays;
   };
 
-  var projectToWL = new Map();
-  var myWL = [];
+  var purchasedJSX = "";
 
   const loadCollectionsData = async() => {
       let userAddress = await getAddress();
       let numListings = Number(await market.getWLVendingItemsLength(cheethAddress));
       let allListingIds = Array.from(Array(numListings).keys());
       const chunks = splitArrayToChunks(allListingIds, 20);
-      let purchasedJSX = "";
       for (const chunk of chunks) {
           await Promise.all( chunk.map( async(id) => {
               let WLinfo = await market.contractToWLVendingItems(cheethAddress, id);
