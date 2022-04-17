@@ -556,6 +556,7 @@ window.onload = async() => {
         if ((await market.isAuthorized(cheethAddress, userAddress))) {
             $("#workshop").removeClass("hidden");
             $("#workshop-mobile").removeClass("hidden");
+            $("#lookup-mobile").removeClass("hidden");
         }
         await loadCollections();
         await updateTokenBalance();

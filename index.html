@@ -41,9 +41,13 @@
          <a href="https://staking.projectgodjira.io/" class="link header-menu" target="_blank">
             Staking
          </a>
-         <a href="./workshop.html" class="link header-menu hidden" id="workshop">
+         <div href="./workshop.html" class="link header-menu" id="workshop">
             Admin Dashboard
-         </a>
+            <div class="" id="workshop-links">
+               <a href="./workshop.html">Listings</a>
+               <a href="./lookup.html">Registered users</a>
+            </div>
+         </div>
       </div>
       <div id="desktop-wallet-connect-div">
          <button class="button hide-on-mobile clickable header-button" id="account" href="#" onclick=connect()>
@@ -93,7 +97,11 @@
                   Staking
                </a>
                <a href="./workshop.html" class="header-menu header-menu link hidden" id="workshop-mobile">
-                  Admin Dashboard
+                  Admin - Listings
+               </a>
+
+               <a href="./lookup.html" class="header-menu header-menu link hidden" id="lookup-mobile">
+                  Admin - Registered Users
                </a>
             </div>
          </div>
@@ -113,10 +121,10 @@
          <button id="past-button" class="button" onclick="showPast()">Past Listings<span id="num-past">(-)</span></button>
       </div>
       <h2 id="scroll-indicator" class="hidden hide-on-mobile" style="text-align: center;color: white;">
-         <img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">
+         <img class="down-arrow" src="images/down-arrow.png"> Scroll<span class="hide-on-mobile"> for more</span> <img class="down-arrow" src="images/down-arrow.png">
       </h2>
       <h2 id="scroll-indicator" class="hide-on-desktop" style="text-align: center;color: white;">
-         <img class="down-arrow" src="images/down-arrow.png"> SCROLL<span class="hide-on-mobile"> FOR MORE</span> <img class="down-arrow" src="images/down-arrow.png">
+         <img class="down-arrow" src="images/down-arrow.png"> Scroll<span class="hide-on-mobile"> for more</span> <img class="down-arrow" src="images/down-arrow.png">
       </h2>
       <div id="live-collections-empty" class="container hidden">
          <div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='http://discord.gg/projectgodjira' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>
