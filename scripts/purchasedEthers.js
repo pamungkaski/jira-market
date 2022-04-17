@@ -129,7 +129,7 @@ const correctChain = 1;
                   </div>
                   <button disabled class="mint-prompt-button button purchased" id="${id}-mint-button">PURCHASED</button>
                   </div></div>`
-                purchasedJSX.push(fakeJSX);
+                purchasedJSX += fakeJSX;
               }
           }))
       };
