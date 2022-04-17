@@ -74,7 +74,7 @@ const loadingDiv = `<div id="ex1" class="partner-collection example">
         <span class="end-time">MM/DD/YYYY HH:MM AM</span>
     </div>
     <div class="row">
-        <span>Total Price</span>
+        <span>Price</span>
         <span class="end-time">??? $JIRA/entry</span>
     </div>
     <div class="row">
@@ -314,7 +314,7 @@ const loadCollections = async() => {
                     button = `<button disabled class="mint-prompt-button button purchased" id="${id}-mint-button">PURCHASED</button>`;
                 }
                 else {
-                    button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchase('${cheethAddress}', ${id})">PURCHASE</button>`;
+                    button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchase('${cheethAddress}', ${id})">PURCHASE FOR $${collectionPrice} JIRA</button>`;
                 }
                 let fakeJSX = `<div id="project-${id}" class="partner-collection">
                     <img class="collection-img" src="${imageUri}">
@@ -326,7 +326,7 @@ const loadCollections = async() => {
                         <span class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>
                     </div>
                     <div class="row">
-                        <span>Total Price</span>
+                        <span>Price</span>
                         <span>${collectionPrice} $JIRA/entry</span>
                     </div>
                     <div class="row">
@@ -360,7 +360,7 @@ const loadCollections = async() => {
                     <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
                     </h3>
                     <div class="row">
-                        <span>Total Price</span>
+                        <span>Price</span>
                         <span>${collectionPrice} $JIRA/entry</span>
                     </div>
                     <div class="row">

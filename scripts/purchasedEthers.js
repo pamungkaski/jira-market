@@ -116,7 +116,7 @@ const correctChain = 1;
                   <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
                   </h3>
                   <div class="row">
-                      <span>Total Price</span>
+                      <span>Price</span>
                       <span>${collectionPrice} $JIRA/entry</span>
                   </div>
                   <div class="row">
