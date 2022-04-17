@@ -177,7 +177,7 @@ function clearPendingTxs() {
      if (tries < 10) {
         tries += 1;
         if (!discordSet) {
-            let userAddress = await getAddress();
+            let userAddress = await signer.getAddress();
             let currentDiscord = await identityMapper.addressToDiscord(userAddress);
             if (currentDiscord) {
                 discordSet = true
