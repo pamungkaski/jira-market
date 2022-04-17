@@ -136,7 +136,7 @@ const correctChain = 1;
   }
 
   const loadMyWL = async() => {
-      if (purchasedJSX.length == 0) {
+      if (purchasedJSX == "") {
           $("#your-wl-spots-text").html("<h3>No spots purchased!</h3>");
           $("#your-wl-spots").addClass("hidden");
       }
