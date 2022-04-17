@@ -356,10 +356,6 @@ const loadCollections = async() => {
                     <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
                     </h3>
                     <div class="row">
-                        <span>Ends in</span>
-                        <span class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>
-                    </div>
-                    <div class="row">
                         <span>Total Price</span>
                         <span>${collectionPrice} $JIRA/entry</span>
                     </div>
