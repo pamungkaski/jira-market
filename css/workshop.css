@@ -47,7 +47,7 @@ textarea {
 }
 
 .create-template-container {
-    width: 400px;
+    width: 350px;
     padding: 50px;
 }
 
@@ -82,21 +82,18 @@ textarea {
 }
 
 @media screen and (max-width: 767px) {
-
-    #modify-input input, #modify-input textarea, #create-input input, #create-input textarea {
-        width: 85%;
-        font-size: 2vh;
-        line-height: 2vh;
-        border: solid black 2px;
-    }
-
-    #modify-input a, #create-input a {
-        font-size: 2vh;
-        line-height: 2vh;
-    }
-
     #create-button {
         margin-right: 0;
+        margin-bottom: 20px;
     }
 
+    #live-collections, #past-collections {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .create-template-container {
+        padding: 0;
+        max-width: 250px;
+    }
 }
