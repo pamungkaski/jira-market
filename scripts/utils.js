@@ -19,12 +19,6 @@ function sleep(ms) {
 function showLive() {
     $('#past-collections').addClass('hidden');
     $('#live-collections').removeClass('hidden');
-    if ($("#live-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#live-button").addClass("active");
     $("#past-button").removeClass("active");
 }
@@ -32,12 +26,6 @@ function showLive() {
 function showPast() {
     $('#live-collections').addClass('hidden');
     $('#past-collections').removeClass('hidden');
-    if ($("#past-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#past-button").addClass("active");
     $("#live-button").removeClass("active");
 }
@@ -45,12 +33,6 @@ function showPast() {
 function showCreate() {
     $('#past-collections').addClass('hidden');
     $('#live-collections').removeClass('hidden');
-    if ($("#live-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#listing-select-div").addClass('hidden');
     $("#create-button").addClass("active");
     $("#modify-button").removeClass("active");
@@ -59,12 +41,6 @@ function showCreate() {
 function showModify() {
     $('#live-collections').addClass('hidden');
     $('#past-collections').removeClass('hidden');
-    if ($("#past-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#listing-select-div").removeClass('hidden');
     $("#modify-button").addClass("active");
     $("#create-button").removeClass("active");
@@ -91,12 +67,6 @@ function clearPendingTxs() {
     $("#past-collections").append(jsonData.pastJSX);
     $("#num-live").html(`<br>(${jsonData.numLive})`);
     $("#num-past").html(`<br>(${jsonData.numPast})`);
-    if (jsonData.numLive > 3 && $("#live-button").hasClass("active")) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else if (jsonData.numPast > 3 && $("#past-button").hasClass("active")) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
 
     if (jsonData.numLive == 0) {
         $("#live-collections").append("<div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='https://discord.com/invite/anonymice' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>");

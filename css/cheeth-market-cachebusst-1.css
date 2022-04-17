@@ -545,9 +545,13 @@ h5 {
 		width: 80%;
     }
 
+		#discord-popup img {
+			width: 80%;
+		}
+
 	#discord-popup p {
-		padding: 0;
-		font-size: 3vh !important;
+		padding: 0 !important;
+		font-size: 15px !important;
 		line-height: 3vh !important;
 		margin: auto !important;
 		margin-bottom: 3%;

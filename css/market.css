@@ -418,26 +418,6 @@ h4 {
     }
 }
 
-/* Scroll animation */
-
-@-webkit-keyframes bounce {
-    0% { transform: translateY(0);}
-   50% {transform: translateY(-5px);}
-   100% { transform: translateY(0);}
-}
-
-@keyframes bounce {
-    0% { transform: translateY(0);}
-   50% {transform: translateY(-5px);}
-   100% { transform: translateY(0);}
-}
-
-#scroll-indicator {
-    -webkit-animation: bounce 1.3s infinite;
-    animation: bounce 1.3s infinite;
-    color: #00FFFF !important;
-}
-
 @media screen and (max-width: 1200px) {
     #live-collections, #past-collections, #your-wl-spots {
         grid-template-columns: repeat(3, minmax(0, 1fr));

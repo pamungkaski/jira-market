@@ -397,13 +397,6 @@ const loadCollections = async() => {
     $("#live-collections").removeClass("example-collection");
     $("#past-collections").removeClass("example-collection");
 
-    if (numLive > 3 && $("#live-button").hasClass("active")) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else if (numPast > 3 && $("#past-button").hasClass("active")) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-
     if (numLive == 0) {
         $("#live-collections").addClass("hidden");
         $("#live-collections-empty").removeClass("hidden");
