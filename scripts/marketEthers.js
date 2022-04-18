@@ -64,18 +64,17 @@ const loadingDiv = `<div id="ex1" class="partner-collection example">
     <button class="button loading" onclick="connect()">Loading<span class="one">.</span><span class="two">.</span><span class="three">.</span></button>
     </div>
     <img class="collection-img" src="./images/silhouette.jpeg">
+    <div class="end-time end-time-bg">
+        Ends in HH:MM AM
+    </div>
     <div class="collection-info">
     <h3>
         ???
         <img src="./images/globe-link.svg" />
     </h3>
     <div class="row">
-        <span>Ends in</span>
-        <span class="end-time">MM/DD/YYYY HH:MM AM</span>
-    </div>
-    <div class="row">
         <span>Price</span>
-        <span class="end-time">??? $JIRA/entry</span>
+        <span class="price">??? $JIRA</span>
     </div>
     <div class="row">
         <span>Description</span>
@@ -195,21 +194,22 @@ setInterval(async()=>{
                     seconds = `0${seconds}`;
                 }
 
-                $(`#timer-text-${id}`).html("Ends in");
+                $(`#timer-${id}`).removeClass("live-time-bg");
+                $(`#timer-${id}`).addClass("end-time-bg");
 
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
                     if (blockTime > endTime) {
                         liveTimerPending[i] = false;
-                        $(`#timer-${id}`).html("EXPIRED");
+                        $(`#timer-${id}`).html("Expired");
                         $(`#timer-${id}`).removeClass("pending");
                     }
                     else {
-                        $(`#timer-${id}`).html(`ENDS NEXT BLOCK<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
+                        $(`#timer-${id}`).html(`Ends next block<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
                     }
                 }
                 else {
-                    $(`#timer-${id}`).html(`${hours}:${minutes}:${seconds}`);
+                    $(`#timer-${id}`).html(`Ends in ${hours}:${minutes}:${seconds}`);
                     $(`#timer-${id}`).addClass("pending");
                 }
             }
@@ -240,7 +240,8 @@ setInterval(async()=>{
                     seconds = `0${seconds}`;
                 }
 
-                $(`#timer-text-${id}`).html("Live in");
+                $(`#timer-${id}`).removeClass("end-time-bg");
+                $(`#timer-${id}`).addClass("live-time-bg");
 
                 if (distance <= 0) {
                     let blockTime = (await provider.getBlock((await provider.getBlockNumber()))).timestamp;
@@ -251,11 +252,11 @@ setInterval(async()=>{
                         $(`#timer-${id}`).removeClass("pending");
                     }
                     else {
-                        $(`#timer-${id}`).html(`LIVE NEXT BLOCK<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
+                        $(`#timer-${id}`).html(`Live next block<span class="one">.</span><span class="two">.</span><span class="three">.</span>`);
                     }
                 }
                 else {
-                    $(`#timer-${id}`).html(`${hours}:${minutes}:${seconds}`);
+                    $(`#timer-${id}`).html(`Live in ${hours}:${minutes}:${seconds}`);
                     $(`#timer-${id}`).addClass("pending");
                 }
             }
@@ -314,20 +315,19 @@ const loadCollections = async() => {
                     button = `<button disabled class="mint-prompt-button button purchased" id="${id}-mint-button">PURCHASED</button>`;
                 }
                 else {
-                    button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchase('${cheethAddress}', ${id})">PURCHASE FOR $${collectionPrice} JIRA</button>`;
+                    button = `<button class="mint-prompt-button button" id="${id}-mint-button" onclick="purchase('${cheethAddress}', ${id})">PURCHASE</button>`;
                 }
                 let fakeJSX = `<div id="project-${id}" class="partner-collection">
                     <img class="collection-img" src="${imageUri}">
+                    <div class="end-time" id="timer-${id}">
+                        <span class="one">.</span><span class="two">.</span><span class="three">.</span>
+                    </div>
                     <div class="collection-info">
                     <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
                     </h3>
                     <div class="row">
-                        <span id="timer-text-${id}"></span>
-                        <span class="end-time" id="timer-${id}"><span class="one">.</span><span class="two">.</span><span class="three">.</span></span>
-                    </div>
-                    <div class="row">
                         <span>Price</span>
-                        <span>${collectionPrice} $JIRA/entry</span>
+                        <span class="price">${collectionPrice} $JIRA</span>
                     </div>
                     <div class="row">
                         <span>Supply</span>
@@ -361,7 +361,7 @@ const loadCollections = async() => {
                     </h3>
                     <div class="row">
                         <span>Price</span>
-                        <span>${collectionPrice} $JIRA/entry</span>
+                        <span class="price">${collectionPrice} $JIRA</span>
                     </div>
                     <div class="row">
                         <span>Supply</span>
