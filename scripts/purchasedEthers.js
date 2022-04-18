@@ -121,7 +121,7 @@ const correctChain = 1;
                   </div>
                   <div class="row">
                       <span>Supply</span>
-                      <span><span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span> Purchased</span>
+                      <span><span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span></span>
                   </div>
                   <div class="row">
                       <span>Description</span>
