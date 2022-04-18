@@ -19,12 +19,6 @@ function sleep(ms) {
 function showLive() {
     $('#past-collections').addClass('hidden');
     $('#live-collections').removeClass('hidden');
-    if ($("#live-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#live-button").addClass("active");
     $("#past-button").removeClass("active");
 }
@@ -32,12 +26,6 @@ function showLive() {
 function showPast() {
     $('#live-collections').addClass('hidden');
     $('#past-collections').removeClass('hidden');
-    if ($("#past-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#past-button").addClass("active");
     $("#live-button").removeClass("active");
 }
@@ -45,12 +33,6 @@ function showPast() {
 function showCreate() {
     $('#past-collections').addClass('hidden');
     $('#live-collections').removeClass('hidden');
-    if ($("#live-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#listing-select-div").addClass('hidden');
     $("#create-button").addClass("active");
     $("#modify-button").removeClass("active");
@@ -59,12 +41,6 @@ function showCreate() {
 function showModify() {
     $('#live-collections').addClass('hidden');
     $('#past-collections').removeClass('hidden');
-    if ($("#past-collections .partner-collection").length > 3) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else {
-        $("#scroll-indicator").addClass("hidden");
-    }
     $("#listing-select-div").removeClass('hidden');
     $("#modify-button").addClass("active");
     $("#create-button").removeClass("active");
@@ -91,12 +67,6 @@ function clearPendingTxs() {
     $("#past-collections").append(jsonData.pastJSX);
     $("#num-live").html(`<br>(${jsonData.numLive})`);
     $("#num-past").html(`<br>(${jsonData.numPast})`);
-    if (jsonData.numLive > 3 && $("#live-button").hasClass("active")) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
-    else if (jsonData.numPast > 3 && $("#past-button").hasClass("active")) {
-        $("#scroll-indicator").removeClass("hidden");
-    }
 
     if (jsonData.numLive == 0) {
         $("#live-collections").append("<div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='https://discord.com/invite/anonymice' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>");
@@ -111,40 +81,41 @@ function clearPendingTxs() {
  const identityMapperAbi = () => {
      return `[{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"addressToDiscord","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"addressToTwitter","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"string","name":"discordTag_","type":"string"}],"name":"setDiscordIdentity","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"string","name":"twitterTag_","type":"string"}],"name":"setTwitterIdentity","outputs":[],"stateMutability":"nonpayable","type":"function"}]`;
  }
- 
+
  const providerID = new ethers.providers.Web3Provider(window.ethereum, "any");
  const signerID = providerID.getSigner();
- 
+
  const identityMapper = new ethers.Contract(identityMapperAddress, identityMapperAbi(), signerID);
- 
+
   const promptForDiscord = async() => {
      if (!($("#discord-popup").length)) {
          let userAddress = await signer.getAddress();
          let currentDiscord = await identityMapper.addressToDiscord(userAddress);
          let discordString = currentDiscord ? currentDiscord : "None";
          let fakeJSX = `<div id="discord-popup">
-                         <div id="content">
-                          <p>Enter Discord User ID to associate with purchases.</p>
-                          <p>Current: ${discordString}</p>
-                          <br>
-                          <input id="discord-name" type="text" spellcheck="false" value="" placeholder="user#1234">
-                          <br>
-                          <button class="button" onclick="setDiscord()"">SET DISCORD</button>
-                         </div>
-                        </div>`;
+            <div id="content">
+            <img src="./images/logo-2.png" />
+            <p>Enter Discord User ID to associate with purchases.</p>
+            <p>Current: ${discordString}</p>
+            <br>
+            <input id="discord-name" type="text" spellcheck="false" value="" placeholder="user#1234">
+            <br>
+            <button class="button" onclick="setDiscord()"">Set discord</button>
+            </div>
+        </div>`;
          $("body").append(fakeJSX);
          let height = $(document).height();
          $("body").append(`<div id='block-screen-discord' style="height:${height}px" onclick="$('#discord-popup').remove();$('#block-screen-discord').remove()"></div>`);
      }
  }
- 
+
  const setDiscord = async() => {
      try {
          let name = $("#discord-name").val();
          console.log(name)
          if (name == "") {
              await displayErrorMessage(`Error: No User ID provided!`);
- 
+
          }
          else if (!(name.includes("#"))) {
              await displayErrorMessage(`Error: Must include "#" and numbers in ID!`);
@@ -168,10 +139,10 @@ function clearPendingTxs() {
          }
      }
  }
- 
+
  var discordSet = false;
  var tries = 0;
- 
+
  const updateDiscord = async() => {
      if (tries < 10) {
         tries += 1;
@@ -185,22 +156,22 @@ function clearPendingTxs() {
                 $("#discord").removeClass("failure");
                 $("#discord-text-mobile").text("SET!");
                 $("#discord-mobile").addClass("success");
-                $("#discord-mobile").removeClass("failure"); 
+                $("#discord-mobile").removeClass("failure");
             }
             else {
                 $("#discord-text").text("NOT SET!");
                 $("#discord").addClass("failure");
-                $("#discord").removeClass("success"); 
-                $("#discord-text-mobile").text("NOT SET!");    
-                $("#discord-mobile").addClass("failure"); 
-                $("#discord-mobile").removeClass("success"); 
+                $("#discord").removeClass("success");
+                $("#discord-text-mobile").text("NOT SET!");
+                $("#discord-mobile").addClass("failure");
+                $("#discord-mobile").removeClass("success");
             }
         }
      }
  }
- 
+
  var timeout = 100;
- 
+
  setInterval(async()=>{
      await updateDiscord();
      timeout = 5000;

@@ -35,227 +35,213 @@ const correctChain = 1;
 
 /*********************************END CONFIG************************************/
 
+  if (window.ethereum == undefined) {
+      displayErrorMessage('Use a web3 enabled browser and connect to use lookup tool!');
+  }
 
-if (window.ethereum == undefined) {
-    displayErrorMessage('Use a web3 enabled browser and connect to use lookup tool!');
-}
+  const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
+  const signer = provider.getSigner();
+  const cheeth = new ethers.Contract(cheethAddress, cheethAbi(), signer);
+  const market = new ethers.Contract(marketAddress, marketAbi(), signer);
 
-const provider = new ethers.providers.Web3Provider(window.ethereum,"any");
-const signer = provider.getSigner();
-const cheeth = new ethers.Contract(cheethAddress, cheethAbi(), signer);
-const market = new ethers.Contract(marketAddress, marketAbi(), signer);
+  const connect = async()=>{
+      await provider.send("eth_requestAccounts", []);
+  };
 
-const connect = async()=>{
-    await provider.send("eth_requestAccounts", []);
-};
+  const getAddress = async()=>{
+      return await signer.getAddress()
+  };
 
-const getAddress = async()=>{
-    return await signer.getAddress()
-};
+  const formatEther = (balance_)=>{
+      return ethers.utils.formatEther(balance_)
+  };
 
-const formatEther = (balance_)=>{
-    return ethers.utils.formatEther(balance_)
-};
+  const parseEther = (eth_)=>{
+      return ethers.utils.parseEther(eth_)
+  };
 
-const parseEther = (eth_)=>{
-    return ethers.utils.parseEther(eth_)
-};
+  const getChainId = async()=>{
+      return await signer.getChainId()
+  };
 
-const getChainId = async()=>{
-    return await signer.getChainId()
-};
+  const updateCurrentChain = async() => {
+      if ((await getChainId()) !== correctChain) {
+          displayErrorMessage("Error: Wrong Network!", false);
+      }
+      else {
+          $("#error-popup").remove();
+          $("#block-screen-error").remove();
+      }
+  }
 
-const updateCurrentChain = async() => {
-    if ((await getChainId()) !== correctChain) {
-        displayErrorMessage("Error: Wrong Network!", false);
-    }
-    else {
-        $("#error-popup").remove();
-        $("#block-screen-error").remove();
-    }
-}
+  const updateTokenBalance = async() => {
+      const userAddress = await getAddress();
+      let balance = formatEther((await cheeth.balanceOf(userAddress)));
+      $("#token-balance").html(`${balance}`);
+      $("#mobile-balance").html(`${balance}`);
+  }
 
-const updateTokenBalance = async() => {
-    const userAddress = await getAddress();
-    let balance = formatEther((await cheeth.balanceOf(userAddress)));
-    $("#token-balance").html(`${balance}`);
-    $("#mobile-balance").html(`${balance}`);
-}
+  const splitArrayToChunks = (array_, chunkSize_) => {
+      let _arrays = Array(Math.ceil(array_.length / chunkSize_))
+          .fill()
+          .map((_, index) => index * chunkSize_)
+          .map((begin) => array_.slice(begin, begin + chunkSize_));
 
-const splitArrayToChunks = (array_, chunkSize_) => {
-    let _arrays = Array(Math.ceil(array_.length / chunkSize_))
-        .fill()
-        .map((_, index) => index * chunkSize_)
-        .map((begin) => array_.slice(begin, begin + chunkSize_));
+      return _arrays;
+  };
 
-    return _arrays;
-};
+  var purchasedJSX = "";
 
-var projectToWL = new Map();
+  const loadCollectionsData = async() => {
+      let userAddress = await getAddress();
+      let numListings = Number(await market.getWLVendingItemsLength(cheethAddress));
+      let allListingIds = Array.from(Array(numListings).keys());
+      const chunks = splitArrayToChunks(allListingIds, 20);
+      for (const chunk of chunks) {
+          await Promise.all( chunk.map( async(id) => {
+              let WLinfo = await market.contractToWLVendingItems(cheethAddress, id);
+              let collectionPrice = Number(formatEther(WLinfo.price));
+              let purchased = await market.contractToWLPurchased(cheethAddress, id, userAddress);
 
-const loadCollectionsData = async() => {
-    let userAddress = await getAddress();
-    let numListings = Number(await market.getWLVendingItemsLength(cheethAddress));
-    let fakeJSX = "";
-    let allListingIds = Array.from(Array(numListings).keys());
-    const chunks = splitArrayToChunks(allListingIds, 20);
-    let idToJSX = new Map();
-    let fullJSX = "";
-    for (const chunk of chunks) {
-        await Promise.all( chunk.map( async(id) => {
-            let buyers = await market.getWLPurchasersOf(cheethAddress, id);
-            let WLinfo = await market.contractToWLVendingItems(cheethAddress, id);
-            let title = WLinfo.title;
-            let deadline = WLinfo.endTime;
-            let purchased = buyers.includes(userAddress);
-            let discordsAndBuyers = await Promise.all(buyers.map(async (buyer) => {
-                let discord = await identityMapper.addressToDiscord(buyer);
-                let discordResult = discord ? discord : "Discord Unknown";
-                return {discord: discordResult, address: buyer};
-            }));
-            projectToWL.set(title+deadline, discordsAndBuyers);
-            fakeJSX = `<option value="${title+deadline}">${title} ${(new Date(deadline*1000)).toLocaleDateString()} ${(new Date(deadline*1000)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</option>`;
-            idToJSX.set(id, fakeJSX)
-            if (id == 0) {
-                selectListing(title+deadline);
-            }
-        }))
-    };
-    for (const listingId of allListingIds) {
-        fullJSX += idToJSX.get(listingId);
-    }
-    $("#listing-select").empty();
-    $("#listing-select").append(fullJSX);
-}
+              // Data from JSON file
+              let maxSlots = WLinfo.amountAvailable;
+              let minted = WLinfo.amountPurchased;
+              let imageUri = (WLinfo.imageUri).includes("https://") ? WLinfo.imageUri : `https://${WLinfo.imageUri}`;
+              let projectUri = (WLinfo.projectUri).includes("https://") ? WLinfo.projectUri : `https://${WLinfo.projectUri}`;
 
-function selectListing(listingKey) {
-    let wlArray = [...(projectToWL.get(listingKey))].map(x => {
-        if (x.discord) {
-            return `${x.discord}: ${x.address}`;
-        }
-        else {
-            return x.address;
-        }
-    });
-    let wlString = wlArray.join("<br>");
-    $("#wl-section").empty();
-    $("#wl-section").html(wlString);
-    updateDownload(listingKey);
-}
+              if (purchased) {
+                let fakeJSX = `<div id="project-${id}" class="partner-collection">
+                  <img class="collection-img" src="${imageUri}">
+                  <div class="collection-info">
+                  <h3><a class="clickable link" href="${projectUri}" target="_blank">${WLinfo.title}<img src="./images/globe-link.svg" /></a>
+                  </h3>
+                  <div class="row">
+                      <span>Price</span>
+                      <span>${collectionPrice} $JIRA/entry</span>
+                  </div>
+                  <div class="row">
+                      <span>Supply</span>
+                      <span><span id="${id}-supply">${minted}</span>/<span id="${id}-max-supply">${maxSlots}</span></span>
+                  </div>
+                  <div class="row">
+                      <span>Description</span>
+                      <span class="inside-text collection-description">${(WLinfo.description).replaceAll("\n", "<br>")}</span>
+                  </div>
+                  <button disabled class="mint-prompt-button button purchased" id="${id}-mint-button">PURCHASED</button>
+                  </div></div>`
+                purchasedJSX += fakeJSX;
+              }
+          }))
+      };
+  }
 
-function updateDownload(listingKey) {
-    let filename = `Godjira Market - ${listingKey} WL.csv`;
-    let wlArray = [...(projectToWL.get(listingKey))].map(x => {
-        if (x.discord) {
-            headerRow = "DISCORD,ADDRESS\n";
-            return `"${x.discord}","${x.address}"`;
-        }
-        else {
-            headerRow = "ADDRESS\n";
-            return `"${x.address}"`;
-        }
-    });
-    let wlString = wlArray.join("\n");
-    wlString = headerRow + wlString;
+  const loadMyWL = async() => {
+      if (purchasedJSX == "") {
+          $("#your-wl-spots-text").html("<h3>No spots purchased!</h3>");
+          $("#your-wl-spots").addClass("hidden");
+      }
+      else {
+          $("#your-wl-spots-text").empty();
+          $("#your-wl-spots").removeClass("hidden");
+          $("#your-wl-spots").empty();
+          $("#your-wl-spots").append(purchasedJSX);
+      }
+  }
 
-    $("#download-link").attr('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(wlString));
-    $("#download-link").attr('download', filename);
-}
+  // General functions
+
+  provider.on("network", async(newNetwork, oldNetwork) => {
+      if (oldNetwork) {
+          location.reload();
+      }
+  });
 
 
+  // Processing tx returns
+  const waitForTransaction = async(tx_) => {
+      startLoading(tx_);
+      provider.once(tx_.hash, async (transaction_) => {
+          await endLoading(tx_, transaction_.status);
+      });
+  };
 
-// General functions
+  // Resuming UI display, refreshing market for pending txs across pages
+  var pendingTransactions = localStorage.getItem("MartianMarketPendingTxs");
 
-provider.on("network", async(newNetwork, oldNetwork) => {
-    if (oldNetwork) {
-        location.reload();
-    }
-});
+  if (!pendingTransactions) {
+      pendingTransactions = new Set();
+  }
+  else {
+      pendingTransactions = new Set(Array.from(JSON.parse(pendingTransactions)));
+      pendingTxArray = Array.from(pendingTransactions);
+      pendingTransactions = new Set();
 
+      for (let i =0; i < pendingTxArray.length; i++) {
+          waitForTransaction(pendingTxArray[i]);
+      }
+      localStorage.removeItem("MartianMarketPendingTxs");
+  }
 
-// Processing tx returns
-const waitForTransaction = async(tx_) => {
-    startLoading(tx_);
-    provider.once(tx_.hash, async (transaction_) => {
-        await endLoading(tx_, transaction_.status);
-    });
-};
+  function cachePendingTransactions() {
+      localStorage.setItem("MartianMarketPendingTxs", JSON.stringify(Array.from(pendingTransactions)));
+  }
 
-// Resuming UI display, refreshing market for pending txs across pages
-var pendingTransactions = localStorage.getItem("MartianMarketPendingTxs");
+  function startLoading(tx) {
+      let txHash = tx.hash;
+      const etherscanLink = `${etherscanBase}${txHash}`;
+      const loadingDiv = `<a href="${etherscanLink}" class="etherscan-link" id="etherscan-link-${txHash}" target="_blank" rel="noopener noreferrer"><div class="loading-div" id="loading-div-${txHash}">PROCESSING<span class="one">.</span><span class="two">.</span><span class="three">.</span>​<br>CLICK FOR ETHERSCAN</div></a><br>`;
+      $("#pending-transactions").append(loadingDiv);
+      pendingTransactions.add(tx);
+  }
 
-if (!pendingTransactions) {
-    pendingTransactions = new Set();
-}
-else {
-    pendingTransactions = new Set(Array.from(JSON.parse(pendingTransactions)));
-    pendingTxArray = Array.from(pendingTransactions);
-    pendingTransactions = new Set();
+  async function endLoading(tx, txStatus) {
+      let txHash = tx.hash;
+      $(`#loading-div-${txHash}`).html("");
+      let status = txStatus == 1 ? "SUCCESS" : "ERROR";
+      $(`#loading-div-${txHash}`).addClass("blinking");
+      if (txStatus == 1) {
+          $(`#loading-div-${txHash}`).addClass("success");
+      }
+      else if (txStatus == 0) {
+          $(`#loading-div-${txHash}`).addClass("failure");
+      }
+      $(`#loading-div-${txHash}`).append(`TRANSACTION ${status}.<br>VIEW ON ETHERSCAN.`);
+      await sleep(7000);
+      $(`#etherscan-link-${txHash}`).remove();
+      pendingTransactions.delete(tx);
+  }
 
-    for (let i =0; i < pendingTxArray.length; i++) {
-        waitForTransaction(pendingTxArray[i]);
-    }
-    localStorage.removeItem("MartianMarketPendingTxs");
-}
+  setInterval(async()=>{
+      await updateCurrentChain();
+      await updateInfo();
+      await updateTokenBalance();
+  }, 5000)
 
-function cachePendingTransactions() {
-    localStorage.setItem("MartianMarketPendingTxs", JSON.stringify(Array.from(pendingTransactions)));
-}
+  const updateInfo = async () => {
+      let userAddress = await getAddress();
+      $("#account").text(`${userAddress.substr(0,7)}..`);
+      $("#mobile-account").text(`${userAddress.substr(0,7)}...`);
+  };
 
-function startLoading(tx) {
-    let txHash = tx.hash;
-    const etherscanLink = `${etherscanBase}${txHash}`;
-    const loadingDiv = `<a href="${etherscanLink}" class="etherscan-link" id="etherscan-link-${txHash}" target="_blank" rel="noopener noreferrer"><div class="loading-div" id="loading-div-${txHash}">PROCESSING<span class="one">.</span><span class="two">.</span><span class="three">.</span>​<br>CLICK FOR ETHERSCAN</div></a><br>`;
-    $("#pending-transactions").append(loadingDiv);
-    pendingTransactions.add(tx);
-}
+  ethereum.on("accountsChanged", async(accounts_)=>{
+      location.reload();
+  });
 
-async function endLoading(tx, txStatus) {
-    let txHash = tx.hash;
-    $(`#loading-div-${txHash}`).html("");
-    let status = txStatus == 1 ? "SUCCESS" : "ERROR";
-    $(`#loading-div-${txHash}`).addClass("blinking");
-    if (txStatus == 1) {
-        $(`#loading-div-${txHash}`).addClass("success");
-    }
-    else if (txStatus == 0) {
-        $(`#loading-div-${txHash}`).addClass("failure");
-    }
-    $(`#loading-div-${txHash}`).append(`TRANSACTION ${status}.<br>VIEW ON ETHERSCAN.`);
-    await sleep(7000);
-    $(`#etherscan-link-${txHash}`).remove();
-    pendingTransactions.delete(tx);
-}
+  window.onload = async()=>{
+      await updateCurrentChain();
+      await updateInfo();
+      let userAddress = await getAddress();
+      if (await market.isAuthorized(cheethAddress, userAddress)) {
+          $("#workshop").removeClass("hidden");
+          $("#workshop-mobile").removeClass("hidden");
+          $("#lookup-mobile").removeClass("hidden");
+      }
+      $("#your-wl-spots-text").html(`<h3>LOADING<span class="one">.</span><span class="two">.</span><span class="three">.</span></h3>`);
+      await loadCollectionsData();
+      await loadMyWL();
+      await updateTokenBalance();
+  };
 
-setInterval(async()=>{
-    await updateCurrentChain();
-    await updateInfo();
-    await updateTokenBalance();
-}, 5000)
-
-const updateInfo = async () => {
-    let userAddress = await getAddress();
-    $("#account").text(`${userAddress.substr(0,7)}..`);
-    $("#mobile-account").text(`${userAddress.substr(0,7)}...`);
-};
-
-ethereum.on("accountsChanged", async(accounts_)=>{
-    location.reload();
-});
-
-window.onload = async()=>{
-    await updateCurrentChain();
-    await updateInfo();
-    let userAddress = await getAddress();
-    if (await market.isAuthorized(cheethAddress, userAddress)) {
-        $("#workshop").removeClass("hidden");
-        $("#workshop-mobile").removeClass("hidden");
-        $("#lookup-mobile").removeClass("hidden");
-    }
-    await loadCollectionsData();
-    await updateTokenBalance();
-};
-
-window.onunload = async()=>{
-    cachePendingTransactions();
-}
+  window.onunload = async()=>{
+      cachePendingTransactions();
+  }
