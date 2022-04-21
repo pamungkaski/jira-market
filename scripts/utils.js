@@ -18,13 +18,13 @@ function sleep(ms) {
 
 function showLive() {
     $('#past-collections').addClass('hidden');
-    $('#live-collections').removeClass('hidden');
+    $('#live-collections-container').removeClass('hidden');
     $("#live-button").addClass("active");
     $("#past-button").removeClass("active");
 }
 
 function showPast() {
-    $('#live-collections').addClass('hidden');
+    $('#live-collections-container').addClass('hidden');
     $('#past-collections').removeClass('hidden');
     $("#past-button").addClass("active");
     $("#live-button").removeClass("active");

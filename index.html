@@ -126,32 +126,34 @@
          <div class="selector-separator"></div>
          <button id="past-button" class="button" onclick="showPast()">Past Listings<span id="num-past">(-)</span></button>
       </div>
-      <div id="live-collections-empty" class="container hidden">
-         <div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='http://discord.gg/projectgodjira' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>
-      </div>
-      <div id="live-collections" class="container example-collection">
-         <div id="ex1" class="partner-collection example">
-            <div class="cover">
-               <button class="button loading" onclick="connect()">Connect your wallet</button>
-            </div>
-            <img class="collection-img" src="./images/silhouette.jpeg">
-            <div class="end-time end-time-bg">
-               Ends in HH:MM AM
-            </div>
-            <div class="collection-info">
-               <h3>
-                  ???
-                  <img src="./images/globe-link.svg" />
-               </h3>
-               <div class="row">
-                  <span>Price</span>
-                  <span class="price">??? $JIRA</span>
+      <div id="live-collections-container">
+         <div id="live-collections-empty" class="container hidden">
+            <div id='no-live-msg'><h2>No active listings.<br>Join our discord to see what's next!</h2><br><a href='http://discord.gg/projectgodjira' target='_blank'><button class='button'>JOIN DISCORD</button></a></div>
+         </div>
+         <div id="live-collections" class="container example-collection">
+            <div id="ex1" class="partner-collection example">
+               <div class="cover">
+                  <button class="button loading" onclick="connect()">Connect your wallet</button>
                </div>
-               <div class="row">
-                  <span>Description</span>
-                  <span class="inside-text collection-description">Project Godjira</span>
+               <img class="collection-img" src="./images/silhouette.jpeg">
+               <div class="end-time end-time-bg">
+                  Ends in HH:MM AM
                </div>
-               <button class="button">PURCHASE</button>
+               <div class="collection-info">
+                  <h3>
+                     ???
+                     <img src="./images/globe-link.svg" />
+                  </h3>
+                  <div class="row">
+                     <span>Price</span>
+                     <span class="price">??? $JIRA</span>
+                  </div>
+                  <div class="row">
+                     <span>Description</span>
+                     <span class="inside-text collection-description">Project Godjira</span>
+                  </div>
+                  <button class="button">PURCHASE</button>
+               </div>
             </div>
          </div>
       </div>
